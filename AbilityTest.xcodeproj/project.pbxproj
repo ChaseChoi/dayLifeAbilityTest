@@ -54,14 +54,70 @@
 		16F3C1AC223F486400032594 /* AbilityTest */ = {
 			isa = PBXGroup;
 			children = (
-				16F3C1AD223F486400032594 /* AppDelegate.swift */,
-				16F3C1AF223F486400032594 /* ViewController.swift */,
-				16F3C1B1223F486400032594 /* Main.storyboard */,
-				16F3C1B4223F486500032594 /* Assets.xcassets */,
-				16F3C1B6223F486500032594 /* LaunchScreen.storyboard */,
-				16F3C1B9223F486500032594 /* Info.plist */,
+				16F3C1C5223F817B00032594 /* Core Data */,
+				16F3C1C4223F809800032594 /* Managers */,
+				16F3C1C3223F808500032594 /* Supporting Files */,
+				16F3C1C2223F805700032594 /* Resources */,
+				16F3C1C1223F7FFB00032594 /* Storyboards */,
+				16F3C1C0223F7FE200032594 /* View Controllers */,
+				16F3C1BF223F7FC500032594 /* Application Delegate */,
 			);
 			path = AbilityTest;
+			sourceTree = "<group>";
+		};
+		16F3C1BF223F7FC500032594 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				16F3C1AD223F486400032594 /* AppDelegate.swift */,
+			);
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		16F3C1C0223F7FE200032594 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				16F3C1AF223F486400032594 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		16F3C1C1223F7FFB00032594 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				16F3C1B1223F486400032594 /* Main.storyboard */,
+				16F3C1B6223F486500032594 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		16F3C1C2223F805700032594 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				16F3C1B4223F486500032594 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		16F3C1C3223F808500032594 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16F3C1B9223F486500032594 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16F3C1C4223F809800032594 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		16F3C1C5223F817B00032594 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +341,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9875RFG2Y;
-				INFOPLIST_FILE = AbilityTest/Info.plist;
+				INFOPLIST_FILE = "AbilityTest/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +361,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9875RFG2Y;
-				INFOPLIST_FILE = AbilityTest/Info.plist;
+				INFOPLIST_FILE = "AbilityTest/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
