@@ -9,11 +9,19 @@
 import UIKit
 import CoreData
 
+protocol RecordSelectionDelegate: class {
+    func recordSelected(_ candidateSelected: Candidate)
+}
+
 class RecordsListViewController: UITableViewController {
     
     // MARK: - Properties
     
     var managedObjectContext: NSManagedObjectContext?
+    
+    // MARK: Delegate
+    
+    weak var delegate: RecordSelectionDelegate?
     
     // MARK: Feteched Results Controller
     
@@ -43,6 +51,12 @@ class RecordsListViewController: UITableViewController {
         
         title = "测试"
         
+        fetchRecords()
+    }
+    
+    // MARK: - Helper Methods
+    
+    func fetchRecords() {
         do {
             try fetchedResultsController.performFetch()
         } catch {
@@ -50,8 +64,6 @@ class RecordsListViewController: UITableViewController {
             print("\(error), \(error.localizedDescription)")
         }
     }
-    
-    
 }
 
 extension RecordsListViewController: NSFetchedResultsControllerDelegate {
@@ -90,11 +102,18 @@ extension RecordsListViewController: NSFetchedResultsControllerDelegate {
 }
 
 extension RecordsListViewController {
+    
     // MARK: - UITableViewDelegate
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCandidate = fetchedResultsController.object(at: indexPath)
+        delegate?.recordSelected(selectedCandidate)
+        
+        if let detailViewController = delegate as? DetailViewController,
+            let detailNavigationViewController = detailViewController.navigationController {
+            splitViewController?.showDetailViewController(detailNavigationViewController, sender: nil)
+        }
+    }
     
     // MARK: - UITableViewDataSource
     

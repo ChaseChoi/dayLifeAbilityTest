@@ -37,10 +37,17 @@ class MainViewController: UIViewController {
         switch identifier {
         case Segue.recordsView:
             if let splitViewController = segue.destination as? UISplitViewController,
-                let navigationViewController = splitViewController.viewControllers.first as? UINavigationController,
-                let recordsViewController = navigationViewController.topViewController as? RecordsListViewController {
+                let leftNavigationController = splitViewController.viewControllers.first as? UINavigationController,
+                let recordsViewController = leftNavigationController.topViewController as? RecordsListViewController,
+            let rightNavigationController = splitViewController.viewControllers.last as? UINavigationController,
+                let detailViewController = rightNavigationController.topViewController as? DetailViewController {
+                // Dependency Injection
                 recordsViewController.managedObjectContext = coreDataManager?.mainManagedObjectContext
+                
+                // Delegate
+                recordsViewController.delegate = detailViewController
             }
+            
         default:
             break;
         }

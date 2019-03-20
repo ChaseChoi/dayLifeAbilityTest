@@ -13,6 +13,7 @@
 		16E0A66B2241CCF5001F1728 /* RecordsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A66A2241CCF5001F1728 /* RecordsListViewController.swift */; };
 		16E0A66E2241CE97001F1728 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A66D2241CE97001F1728 /* Segue.swift */; };
 		16E0A6702241E119001F1728 /* RecordListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A66F2241E119001F1728 /* RecordListCell.swift */; };
+		16E0A67222421947001F1728 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A67122421947001F1728 /* DetailViewController.swift */; };
 		16F3C1AE223F486400032594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F3C1AD223F486400032594 /* AppDelegate.swift */; };
 		16F3C1B3223F486400032594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F3C1B1223F486400032594 /* Main.storyboard */; };
 		16F3C1B5223F486500032594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F3C1B4223F486500032594 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		16E0A66A2241CCF5001F1728 /* RecordsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListViewController.swift; sourceTree = "<group>"; };
 		16E0A66D2241CE97001F1728 /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		16E0A66F2241E119001F1728 /* RecordListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListCell.swift; sourceTree = "<group>"; };
+		16E0A67122421947001F1728 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		16F3C1AA223F486400032594 /* AbilityTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbilityTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F3C1AD223F486400032594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F3C1B2223F486400032594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		16E0A6692241CCD7001F1728 /* Detail View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				16E0A67122421947001F1728 /* DetailViewController.swift */,
 			);
 			path = "Detail View Controller";
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16E0A67222421947001F1728 /* DetailViewController.swift in Sources */,
 				16E0A6662240D4D1001F1728 /* DataModel.swift in Sources */,
 				16F3C1C7223F833000032594 /* CoreDataManager.swift in Sources */,
 				16E0A6702241E119001F1728 /* RecordListCell.swift in Sources */,
