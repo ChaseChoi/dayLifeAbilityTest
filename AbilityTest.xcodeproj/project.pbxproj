@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163540AB22423504006880E3 /* Records.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163540A922423504006880E3 /* Records.storyboard */; };
 		16E0A66122409320001F1728 /* Candidates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A65F22409320001F1728 /* Candidates.xcdatamodeld */; };
 		16E0A6632240CF75001F1728 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A6622240CF75001F1728 /* MainViewController.swift */; };
 		16E0A6662240D4D1001F1728 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A6652240D4D1001F1728 /* DataModel.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		163540AA22423504006880E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AbilityTest/Storyboards/Base.lproj/Records.storyboard; sourceTree = "<group>"; };
 		16E0A66022409320001F1728 /* Candidates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Candidates.xcdatamodel; sourceTree = "<group>"; };
 		16E0A6622240CF75001F1728 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		16E0A6652240D4D1001F1728 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		16F3C1C1223F7FFB00032594 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				163540A922423504006880E3 /* Records.storyboard */,
 				16F3C1B1223F486400032594 /* Main.storyboard */,
 				16F3C1B6223F486500032594 /* LaunchScreen.storyboard */,
 			);
@@ -242,6 +245,7 @@
 				16F3C1B8223F486500032594 /* LaunchScreen.storyboard in Resources */,
 				16F3C1B5223F486500032594 /* Assets.xcassets in Resources */,
 				16F3C1B3223F486400032594 /* Main.storyboard in Resources */,
+				163540AB22423504006880E3 /* Records.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +271,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		163540A922423504006880E3 /* Records.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				163540AA22423504006880E3 /* Base */,
+			);
+			name = Records.storyboard;
+			sourceTree = "<group>";
+		};
 		16F3C1B1223F486400032594 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
