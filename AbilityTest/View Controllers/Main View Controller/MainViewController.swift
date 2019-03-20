@@ -29,6 +29,23 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case Segue.recordsView:
+            if let splitViewController = segue.destination as? UISplitViewController,
+                let navigationViewController = splitViewController.viewControllers.first as? UINavigationController,
+                let recordsViewController = navigationViewController.topViewController as? RecordsListViewController {
+                recordsViewController.managedObjectContext = coreDataManager?.mainManagedObjectContext
+            }
+        default:
+            break;
+        }
+    }
+    
     func setupView() {
         acitivityIndicatorView.stopAnimating()
         
