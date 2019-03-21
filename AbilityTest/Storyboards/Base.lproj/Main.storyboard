@@ -25,13 +25,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="59" height="47"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <state key="normal" title="新建"/>
+                                        <connections>
+                                            <segue destination="nfu-q9-Bq6" kind="presentation" identifier="registerView" id="r1J-aY-Fie"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Sw-Ag-Kaf">
                                         <rect key="frame" x="0.0" y="47" width="59" height="47"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <state key="normal" title="查看"/>
                                         <connections>
-                                            <segue destination="3eT-kN-1m1" kind="showDetail" identifier="recordsView" id="8oF-J6-71N"/>
+                                            <segue destination="efX-vU-QmJ" kind="showDetail" identifier="recordsView" id="8oF-J6-71N"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -52,121 +55,91 @@
             </objects>
             <point key="canvasLocation" x="107" y="108"/>
         </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="egK-kL-1H2">
+        <!--Register View Controller-->
+        <scene sceneID="kAJ-lz-b5h">
             <objects>
-                <viewController id="PPY-9k-1pv" customClass="DetailViewController" customModule="AbilityTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3cq-OC-eBe">
+                <viewController id="nfu-q9-Bq6" customClass="RegisterViewController" customModule="AbilityTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cJX-aF-KoO">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFK-Mb-CvW">
-                                <rect key="frame" x="351" y="229" width="276" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="oFU-9K-Sks">
+                                <rect key="frame" x="200" y="466" width="368" height="408"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cfF-SZ-cTz">
+                                        <rect key="frame" x="0.0" y="0.0" width="368" height="34"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="编号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zso-Kz-e9q">
+                                        <rect key="frame" x="0.0" y="77" width="368" height="34"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="主试" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7DI-gk-8QP">
+                                        <rect key="frame" x="0.0" y="154" width="368" height="34"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuD-Iq-TjO">
+                                        <rect key="frame" x="0.0" y="231" width="368" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="智力障碍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgm-pJ-jXw">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYL-Lb-eIB">
+                                                <rect key="frame" x="319" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0H-qr-H6S">
+                                        <rect key="frame" x="0.0" y="305" width="368" height="30"/>
+                                        <state key="normal" title="开始测试"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrS-We-Md3">
+                                        <rect key="frame" x="0.0" y="378" width="368" height="30"/>
+                                        <state key="normal" title="关闭"/>
+                                        <connections>
+                                            <segue destination="pg0-UC-Jdu" kind="unwind" unwindAction="unwindRegisterViewWith:" id="RxO-S2-a5b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="kPM-Lj-LwR"/>
+                        <constraints>
+                            <constraint firstItem="lF1-Ru-uPQ" firstAttribute="bottom" secondItem="oFU-9K-Sks" secondAttribute="bottom" constant="150" id="12g-0S-3Iz"/>
+                            <constraint firstItem="oFU-9K-Sks" firstAttribute="leading" secondItem="lF1-Ru-uPQ" secondAttribute="leading" constant="200" id="Pbx-eE-eLP"/>
+                            <constraint firstItem="lF1-Ru-uPQ" firstAttribute="trailing" secondItem="oFU-9K-Sks" secondAttribute="trailing" constant="200" id="aOl-9c-rfI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lF1-Ru-uPQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kqf-RN-zFo"/>
                     <connections>
-                        <outlet property="nameLabel" destination="VFK-Mb-CvW" id="M05-aQ-asj"/>
+                        <outlet property="closeButton" destination="UrS-We-Md3" id="zUX-l0-Wpb"/>
+                        <outlet property="continueButton" destination="Z0H-qr-H6S" id="Bhf-vc-Ruc"/>
+                        <outlet property="examinerTextField" destination="7DI-gk-8QP" id="NeS-Gi-6es"/>
+                        <outlet property="idTextField" destination="Zso-Kz-e9q" id="S9u-s6-Itu"/>
+                        <outlet property="nameTextField" destination="cfF-SZ-cTz" id="MBx-QO-pOq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HxG-gc-RkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPF-fo-RAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pg0-UC-Jdu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2501.5625" y="-66.2109375"/>
+            <point key="canvasLocation" x="964.84375" y="-251.36718749999997"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="s2W-ZD-iTB">
+        <!--Records-->
+        <scene sceneID="SZL-xm-JZm">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="7a1-4q-LOY" customClass="RecordsListViewController" customModule="AbilityTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ttC-hJ-atI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordListCell" id="FXc-tS-f3V" customClass="RecordListCell" customModule="AbilityTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FXc-tS-f3V" id="j2W-7k-vCZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-ed-ENq">
-                                            <rect key="frame" x="16" y="0.0" width="145" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="nameLabel" destination="rYm-ed-ENq" id="tvp-lW-G07"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="7a1-4q-LOY" id="xUv-6p-nVD"/>
-                            <outlet property="delegate" destination="7a1-4q-LOY" id="PJ6-op-1e3"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="7xa-hE-ur0"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UEy-I7-I9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Records" id="efX-vU-QmJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ql6-je-2YC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2505.46875" y="-708.3984375"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="r4a-Dw-KdZ">
-            <objects>
-                <navigationController id="o2U-0P-ZKF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kQc-m2-Q4Z">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="7a1-4q-LOY" kind="relationship" relationship="rootViewController" id="5mu-eI-Tde"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="neg-Vl-3of" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1736" y="-709"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="xPa-rH-tql">
-            <objects>
-                <splitViewController id="3eT-kN-1m1" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="o2U-0P-ZKF" kind="relationship" relationship="masterViewController" id="tmn-zf-hdd"/>
-                        <segue destination="4WY-Nm-6CQ" kind="relationship" relationship="detailViewController" id="DBn-dK-uBj"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xcn-Jc-k3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="965" y="-387"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="jz7-rX-S8r">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4WY-Nm-6CQ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAb-eb-eJx">
-                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="PPY-9k-1pv" kind="relationship" relationship="rootViewController" id="n2R-po-J3h"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bQo-uA-yzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1735.9375" y="-66.2109375"/>
+            <point key="canvasLocation" x="697" y="279"/>
         </scene>
     </scenes>
 </document>
