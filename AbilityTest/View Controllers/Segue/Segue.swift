@@ -11,4 +11,5 @@ import Foundation
 enum Segue {
     static let recordsView = "recordsView"
     static let registerView = "registerView"
+    static let pdfPreviewView = "pdfPreviewView"
 }

@@ -29,12 +29,32 @@ class DetailViewController: UIViewController {
         splitViewController?.preferredDisplayMode = .allVisible
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case Segue.pdfPreviewView:
+            if let navigationViewController = segue.destination as? UINavigationController,
+                let pdfPreviewController = navigationViewController.topViewController as? PDFPreviewViewController, let candidate = candidate {
+                pdfPreviewController.candidate = candidate
+            }
+        default:
+            break
+        }
+    }
+    
     // MARK: - Helper Methods
     
     func updateView() {
         if let candidate = candidate {
             nameLabel.text = candidate.name
         }
+    }
+    
+    @IBAction func unwindPDFPreview(with segue: UIStoryboardSegue) {
+        
     }
 }
 
