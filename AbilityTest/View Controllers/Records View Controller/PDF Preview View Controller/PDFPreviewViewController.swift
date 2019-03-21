@@ -37,34 +37,18 @@ class PDFPreviewViewController: UIViewController {
     
     @IBAction func shareButtonTapped() {
         // Get PDF File Path
-        let fileManager = FileManager.default
         let pdfFilePath = reportFormComposer.pdfFilePath
         
-        // Check if File Exists
-        if fileManager.fileExists(atPath: pdfFilePath) {
-            if let pdfData = NSData(contentsOfFile: pdfFilePath) {
-                // TODO: Add String about User Info
-                let reportTitle = "日常生活活动能力评估报告"
-                let activityViewController = UIActivityViewController(activityItems: [pdfData, reportTitle], applicationActivities: nil)
-                
-                // For iPad
-                if let popOverController = activityViewController.popoverPresentationController {
-                    popOverController.barButtonItem = actionButton
-                }
-                present(activityViewController, animated: true, completion: nil)
-            }
-        } else {
-            // Configure Alert Controller
-            let title = "加载失败"
-            let message = "PDF文件加载失败, 请检查文件路径"
-            let buttonTitle = "好的"
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let action = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
-            alertController.addAction(action)
-
-            // Show Alert
-            present(alertController, animated: true, completion: nil)
-        }
+        // Get PDF File URL
+        let pdfURL = URL(fileURLWithPath: pdfFilePath)
+        
+        // TODO: Add String about User Info
+        let reportTitle = "日常生活活动能力评估报告"
+        let activityViewController = UIActivityViewController(activityItems: [pdfURL, reportTitle], applicationActivities: nil)
+        
+        activityViewController.popoverPresentationController?.barButtonItem = actionButton
+        
+        present(activityViewController, animated: true, completion: nil)
     }
     
     // MARK: - Helper Methods
