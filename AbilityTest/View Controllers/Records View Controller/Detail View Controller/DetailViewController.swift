@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     // MARK: - Properties
+    
     var candidate: Candidate? {
         didSet {
             updateView()
@@ -22,6 +23,8 @@ class DetailViewController: UIViewController {
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         // Always Display Master Pane
         splitViewController?.preferredDisplayMode = .allVisible
     }

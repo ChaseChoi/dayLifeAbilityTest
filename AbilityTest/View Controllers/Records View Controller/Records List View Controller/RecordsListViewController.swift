@@ -48,6 +48,7 @@ class RecordsListViewController: UITableViewController {
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         title = "测试"
         

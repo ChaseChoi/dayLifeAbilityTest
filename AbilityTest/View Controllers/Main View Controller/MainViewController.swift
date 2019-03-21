@@ -47,7 +47,11 @@ class MainViewController: UIViewController {
                 // Delegate
                 recordsViewController.delegate = detailViewController
             }
-            
+        case Segue.registerView:
+            if let registerViewController = segue.destination as? RegisterViewController {
+                // Dependency Injection
+                registerViewController.managedObjectContext = coreDataManager?.mainManagedObjectContext
+            }
         default:
             break;
         }
@@ -55,6 +59,12 @@ class MainViewController: UIViewController {
     
     func setupView() {
         acitivityIndicatorView.stopAnimating()
+        
+    }
+    
+    // MARK: - @IBActions
+    
+    @IBAction func unwindRegisterView(with segue: UIStoryboardSegue) {
         
     }
 }

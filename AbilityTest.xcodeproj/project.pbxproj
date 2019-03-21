@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		163540AB22423504006880E3 /* Records.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163540A922423504006880E3 /* Records.storyboard */; };
+		163540AE224235FF006880E3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163540AD224235FF006880E3 /* RegisterViewController.swift */; };
 		16E0A66122409320001F1728 /* Candidates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A65F22409320001F1728 /* Candidates.xcdatamodeld */; };
 		16E0A6632240CF75001F1728 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A6622240CF75001F1728 /* MainViewController.swift */; };
 		16E0A6662240D4D1001F1728 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A6652240D4D1001F1728 /* DataModel.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		163540AA22423504006880E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AbilityTest/Storyboards/Base.lproj/Records.storyboard; sourceTree = "<group>"; };
+		163540AD224235FF006880E3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		16E0A66022409320001F1728 /* Candidates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Candidates.xcdatamodel; sourceTree = "<group>"; };
 		16E0A6622240CF75001F1728 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		16E0A6652240D4D1001F1728 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163540AC224235D1006880E3 /* Register View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				163540AD224235FF006880E3 /* RegisterViewController.swift */,
+			);
+			path = "Register View Controller";
+			sourceTree = "<group>";
+		};
 		16E0A65E224092DB001F1728 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +73,7 @@
 		16E0A6642240CFE4001F1728 /* Main View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				163540AC224235D1006880E3 /* Register View Controller */,
 				16E0A6622240CF75001F1728 /* MainViewController.swift */,
 			);
 			path = "Main View Controller";
@@ -257,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16E0A67222421947001F1728 /* DetailViewController.swift in Sources */,
+				163540AE224235FF006880E3 /* RegisterViewController.swift in Sources */,
 				16E0A6662240D4D1001F1728 /* DataModel.swift in Sources */,
 				16F3C1C7223F833000032594 /* CoreDataManager.swift in Sources */,
 				16E0A6702241E119001F1728 /* RecordListCell.swift in Sources */,
@@ -422,6 +434,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9875RFG2Y;
 				INFOPLIST_FILE = "AbilityTest/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E9875RFG2Y;
 				INFOPLIST_FILE = "AbilityTest/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
