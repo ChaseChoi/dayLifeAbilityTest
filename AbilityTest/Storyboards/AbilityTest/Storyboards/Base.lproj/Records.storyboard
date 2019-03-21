@@ -37,12 +37,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kPM-Lj-LwR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kqf-RN-zFo"/>
+                    <navigationItem key="navigationItem" id="Kqf-RN-zFo">
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="SWC-hT-xqI">
+                            <connections>
+                                <segue destination="OfE-JY-aSG" kind="unwind" unwindAction="unwindRecordsViewWith:" id="hZs-zf-ifl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="VFK-Mb-CvW" id="M05-aQ-asj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxG-gc-RkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OfE-JY-aSG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2501.5625" y="-66.2109375"/>
         </scene>
@@ -77,14 +84,21 @@
                         <viewLayoutGuide key="safeArea" id="2cK-cr-r1T"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pu8-Rb-Sqg">
-                        <barButtonItem key="leftBarButtonItem" title="完成" id="Yrp-kx-Czf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="Yrp-kx-Czf">
                             <connections>
-                                <segue destination="yhV-ma-3Sn" kind="unwind" unwindAction="unwindPDFPreviewWith:" id="lbb-IL-VjQ"/>
+                                <action selector="shareButtonTapped" destination="oQt-eE-2p3" id="ciE-KS-UGP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="uqp-BS-NVU">
+                            <connections>
+                                <segue destination="yhV-ma-3Sn" kind="unwind" unwindAction="unwindPDFPreviewWith:" id="2Zp-AY-pvt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionButton" destination="Yrp-kx-Czf" id="XLR-wY-Hi7"/>
                         <outlet property="activityIndicatorView" destination="n12-FL-IiP" id="vbO-4K-UGV"/>
+                        <outlet property="doneButton" destination="uqp-BS-NVU" id="rGM-7b-5W3"/>
                         <outlet property="webView" destination="YLr-6D-IOK" id="xko-i7-dmM"/>
                     </connections>
                 </viewController>
