@@ -19,10 +19,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var examinerTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var isIntellectuallyDisabledButton: UISwitch!
     
     // MARK: - Properties
     
     var managedObjectContext: NSManagedObjectContext?
+    
+    var newCandidate: Candidate?
     
     // MARK: - View Life Cycle
     
@@ -35,6 +38,20 @@ class RegisterViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         removeNotificationHandling()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        switch identifier {
+        case Segue.topicsCarouselView:
+            if let topicsCarouselViewController = segue.destination as? TopicsCarouselViewController, let candidate = self.newCandidate {
+                topicsCarouselViewController.candidate = candidate
+            }
+        default:
+            break
+        }
     }
     
     // MARK: - Notification Handling
@@ -80,6 +97,25 @@ class RegisterViewController: UIViewController {
         nameTextField.delegate = self
         idTextField.delegate = self
         examinerTextField.delegate = self
+    }
+    
+    // MARK: - @IBActions
+    @IBAction func continueButtonTapped() {
+        guard let managedObjectContext = self.managedObjectContext else {
+            return
+        }
+        guard let name = nameTextField.text else {return}
+        guard let id = idTextField.text else {return}
+        guard let examiner = examinerTextField.text else {return}
+        
+        // Create and Configure New Candidate
+        let newCandidate = Candidate(context: managedObjectContext)
+        newCandidate.name = name
+        newCandidate.examiner = examiner
+        newCandidate.id = id
+        newCandidate.isIntellecuallyDisabled = isIntellectuallyDisabledButton.isOn
+        
+        self.newCandidate = newCandidate
     }
 }
 

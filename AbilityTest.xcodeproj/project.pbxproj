@@ -11,8 +11,13 @@
 		1611AC7322433C03002EF498 /* ReportFormComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1611AC7222433C03002EF498 /* ReportFormComposer.swift */; };
 		1611AC7522433D4B002EF498 /* reportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 1611AC7422433D4B002EF498 /* reportTemplate.html */; };
 		1611AC7722437167002EF498 /* CustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1611AC7622437167002EF498 /* CustomPrintPageRenderer.swift */; };
+		162C396C22447E8C002613C1 /* TopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C396B22447E8C002613C1 /* TopicCollectionViewCell.swift */; };
+		162C396F2244890B002613C1 /* TopicCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C396E2244890A002613C1 /* TopicCollectionItem.swift */; };
+		162C3971224489AF002613C1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C3970224489AF002613C1 /* APIManager.swift */; };
+		162C397622448B78002613C1 /* topics.json in Resources */ = {isa = PBXBuildFile; fileRef = 162C397522448B78002613C1 /* topics.json */; };
 		163540AB22423504006880E3 /* Records.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163540A922423504006880E3 /* Records.storyboard */; };
 		163540AE224235FF006880E3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163540AD224235FF006880E3 /* RegisterViewController.swift */; };
+		16A6ADC1224470A80090B441 /* TopicsCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6ADC0224470A80090B441 /* TopicsCarouselViewController.swift */; };
 		16E0A66122409320001F1728 /* Candidates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A65F22409320001F1728 /* Candidates.xcdatamodeld */; };
 		16E0A6632240CF75001F1728 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A6622240CF75001F1728 /* MainViewController.swift */; };
 		16E0A6662240D4D1001F1728 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A6652240D4D1001F1728 /* DataModel.swift */; };
@@ -32,8 +37,13 @@
 		1611AC7222433C03002EF498 /* ReportFormComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFormComposer.swift; sourceTree = "<group>"; };
 		1611AC7422433D4B002EF498 /* reportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = reportTemplate.html; sourceTree = "<group>"; };
 		1611AC7622437167002EF498 /* CustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPrintPageRenderer.swift; sourceTree = "<group>"; };
+		162C396B22447E8C002613C1 /* TopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCollectionViewCell.swift; sourceTree = "<group>"; };
+		162C396E2244890A002613C1 /* TopicCollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCollectionItem.swift; sourceTree = "<group>"; };
+		162C3970224489AF002613C1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		162C397522448B78002613C1 /* topics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topics.json; sourceTree = "<group>"; };
 		163540AA22423504006880E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AbilityTest/Storyboards/Base.lproj/Records.storyboard; sourceTree = "<group>"; };
 		163540AD224235FF006880E3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		16A6ADC0224470A80090B441 /* TopicsCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsCarouselViewController.swift; sourceTree = "<group>"; };
 		16E0A66022409320001F1728 /* Candidates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Candidates.xcdatamodel; sourceTree = "<group>"; };
 		16E0A6622240CF75001F1728 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		16E0A6652240D4D1001F1728 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -61,6 +71,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162C396D224488DE002613C1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				162C397222448AC0002613C1 /* JSON */,
+				162C396E2244890A002613C1 /* TopicCollectionItem.swift */,
+				162C3970224489AF002613C1 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		162C397222448AC0002613C1 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				162C397522448B78002613C1 /* topics.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		163540AC224235D1006880E3 /* Register View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +108,7 @@
 		163540B42243199F006880E3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				162C396D224488DE002613C1 /* API */,
 				163540B5224319AA006880E3 /* PDF Template */,
 			);
 			path = Common;
@@ -93,6 +122,15 @@
 				1611AC7622437167002EF498 /* CustomPrintPageRenderer.swift */,
 			);
 			path = "PDF Template";
+			sourceTree = "<group>";
+		};
+		16A6ADBF224470510090B441 /* Topics Carousel View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16A6ADC0224470A80090B441 /* TopicsCarouselViewController.swift */,
+				162C396B22447E8C002613C1 /* TopicCollectionViewCell.swift */,
+			);
+			path = "Topics Carousel View Controller";
 			sourceTree = "<group>";
 		};
 		16E0A65E224092DB001F1728 /* Data Model */ = {
@@ -189,6 +227,7 @@
 		16F3C1C0223F7FE200032594 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				16A6ADBF224470510090B441 /* Topics Carousel View Controller */,
 				16E0A66C2241CE8D001F1728 /* Segue */,
 				16E0A6672241CCA2001F1728 /* Records View Controller */,
 				163540AC224235D1006880E3 /* Register View Controller */,
@@ -290,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F3C1B8223F486500032594 /* LaunchScreen.storyboard in Resources */,
+				162C397622448B78002613C1 /* topics.json in Resources */,
 				16F3C1B5223F486500032594 /* Assets.xcassets in Resources */,
 				16F3C1B3223F486400032594 /* Main.storyboard in Resources */,
 				1611AC7522433D4B002EF498 /* reportTemplate.html in Resources */,
@@ -308,6 +348,7 @@
 				1611AC71224330CB002EF498 /* PDFPreviewViewController.swift in Sources */,
 				163540AE224235FF006880E3 /* RegisterViewController.swift in Sources */,
 				16E0A6662240D4D1001F1728 /* DataModel.swift in Sources */,
+				16A6ADC1224470A80090B441 /* TopicsCarouselViewController.swift in Sources */,
 				16F3C1C7223F833000032594 /* CoreDataManager.swift in Sources */,
 				16E0A6702241E119001F1728 /* RecordListCell.swift in Sources */,
 				16F3C1AE223F486400032594 /* AppDelegate.swift in Sources */,
@@ -315,8 +356,11 @@
 				16E0A66B2241CCF5001F1728 /* RecordsListViewController.swift in Sources */,
 				16E0A66122409320001F1728 /* Candidates.xcdatamodeld in Sources */,
 				16E0A66E2241CE97001F1728 /* Segue.swift in Sources */,
+				162C3971224489AF002613C1 /* APIManager.swift in Sources */,
 				1611AC7722437167002EF498 /* CustomPrintPageRenderer.swift in Sources */,
 				16E0A6632240CF75001F1728 /* MainViewController.swift in Sources */,
+				162C396F2244890B002613C1 /* TopicCollectionItem.swift in Sources */,
+				162C396C22447E8C002613C1 /* TopicCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
