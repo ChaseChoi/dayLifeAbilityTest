@@ -74,9 +74,8 @@
 		162C396D224488DE002613C1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				162C39782244C542002613C1 /* API Manager */,
 				162C397222448AC0002613C1 /* JSON */,
-				162C396E2244890A002613C1 /* TopicCollectionItem.swift */,
-				162C3970224489AF002613C1 /* APIManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -84,9 +83,26 @@
 		162C397222448AC0002613C1 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				162C397522448B78002613C1 /* topics.json */,
+				162C39772244C525002613C1 /* Topics */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		162C39772244C525002613C1 /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				162C397522448B78002613C1 /* topics.json */,
+			);
+			path = Topics;
+			sourceTree = "<group>";
+		};
+		162C39782244C542002613C1 /* API Manager */ = {
+			isa = PBXGroup;
+			children = (
+				162C396E2244890A002613C1 /* TopicCollectionItem.swift */,
+				162C3970224489AF002613C1 /* APIManager.swift */,
+			);
+			path = "API Manager";
 			sourceTree = "<group>";
 		};
 		163540AC224235D1006880E3 /* Register View Controller */ = {

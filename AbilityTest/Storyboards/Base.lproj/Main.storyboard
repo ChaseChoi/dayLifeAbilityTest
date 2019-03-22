@@ -156,20 +156,59 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OoK-8U-3yB">
                                 <rect key="frame" x="0.0" y="155" width="768" height="852"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dhm-jg-2Pr">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="20" id="dhm-jg-2Pr">
+                                    <size key="itemSize" width="416" height="708"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Pg-gZ-qf4">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topicItemCell" id="1Pg-gZ-qf4" customClass="TopicCollectionViewCell" customModule="AbilityTest" customModuleProvider="target">
+                                        <rect key="frame" x="166" y="0.0" width="416" height="708"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="416" height="708"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKg-en-mYx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="416" height="708"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5l-o7-Shc">
+                                                            <rect key="frame" x="8" y="333" width="400" height="42"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic Gist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bID-5T-Web">
+                                                            <rect key="frame" x="20" y="383" width="376" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.49253531678082191" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="O5l-o7-Shc" firstAttribute="centerY" secondItem="OKg-en-mYx" secondAttribute="centerY" id="1yi-1x-kqd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="bID-5T-Web" secondAttribute="trailing" constant="20" id="NWT-P0-tZg"/>
+                                                        <constraint firstItem="O5l-o7-Shc" firstAttribute="leading" secondItem="OKg-en-mYx" secondAttribute="leading" constant="8" id="QJH-XA-Q2W"/>
+                                                        <constraint firstAttribute="trailing" secondItem="O5l-o7-Shc" secondAttribute="trailing" constant="8" id="X2U-tu-7LA"/>
+                                                        <constraint firstItem="bID-5T-Web" firstAttribute="leading" secondItem="OKg-en-mYx" secondAttribute="leading" constant="20" id="mtG-7g-Td9"/>
+                                                        <constraint firstItem="bID-5T-Web" firstAttribute="top" secondItem="O5l-o7-Shc" secondAttribute="bottom" constant="8" id="tN3-BW-l2G"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OKg-en-mYx" secondAttribute="trailing" id="4tO-97-nSG"/>
+                                            <constraint firstItem="OKg-en-mYx" firstAttribute="top" secondItem="1Pg-gZ-qf4" secondAttribute="top" id="AgA-Cx-gsb"/>
+                                            <constraint firstItem="OKg-en-mYx" firstAttribute="leading" secondItem="1Pg-gZ-qf4" secondAttribute="leading" id="oFj-ee-Xhf"/>
+                                            <constraint firstAttribute="bottom" secondItem="OKg-en-mYx" secondAttribute="bottom" id="uRf-Hp-rLM"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="backgroundColorView" destination="OKg-en-mYx" id="EKT-6e-Ea4"/>
+                                            <outlet property="titleLabel" destination="O5l-o7-Shc" id="yRh-1j-HOh"/>
+                                            <outlet property="topicGistLabel" destination="bID-5T-Web" id="b6e-0x-NRW"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

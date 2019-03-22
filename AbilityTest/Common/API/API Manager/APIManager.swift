@@ -6,19 +6,19 @@
 //  Copyright © 2019 Chase Choi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum AbilityTestAPI {
     static let topcisJSONFileName = "topics"
 }
 
 class APIManager {
-    func loadTopics() -> [TopicCollectionItem]? {
-        var topicItems: [TopicCollectionItem]?
+    static func loadTopics() -> [TopicCollectionItem] {
+        var topicItems: [TopicCollectionItem] = []
         
         do {
             guard let topicsURL = Bundle.main.url(forResource: AbilityTestAPI.topcisJSONFileName, withExtension: "json") else {
-                return nil
+                return topicItems
             }
             let topicsJSONData = try Data(contentsOf: topicsURL)
             

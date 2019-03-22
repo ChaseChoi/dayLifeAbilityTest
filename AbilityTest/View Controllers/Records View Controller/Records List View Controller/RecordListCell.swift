@@ -10,7 +10,7 @@ import UIKit
 
 class RecordListCell: UITableViewCell {
     
-    // MARK: IBOutlet
+    // MARK: IBOutlets
     
     @IBOutlet weak var nameLabel: UILabel!
     
