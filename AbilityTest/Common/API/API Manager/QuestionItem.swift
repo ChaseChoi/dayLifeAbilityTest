@@ -12,12 +12,7 @@ struct QuestionItem: Decodable {
     let topic: Int
     let id: Int
     let questionContent: String
-    let correctOptionNumber: Int
+    let correctOptionIndex: Int
     let refImageName: String?
-    let options: [QuestionOption]
-}
-
-struct QuestionOption: Decodable {
-    let optionNumber: Int
-    let imageName: String
+    let options: [String]
 }
