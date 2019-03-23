@@ -9,7 +9,7 @@
 import UIKit
 
 struct TopicCollectionItem: Decodable {
-    let id: String
+    let id: Int
     let title: String
     let gist: String
 }
