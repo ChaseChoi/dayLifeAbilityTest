@@ -38,6 +38,23 @@ class TopicsCarouselViewController: UIViewController {
         coordinator.animate(alongsideTransition: { _ in self.topicCollectionView.collectionViewLayout.invalidateLayout() }, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        switch identifier {
+        case Segue.questionsView:
+            if let questionViewController = segue.destination as? QuestionViewController,
+                let cell = sender as? TopicCollectionViewCell,
+                let indexPath = self.topicCollectionView?.indexPath(for: cell) {
+                let currentTopicID = topicItems[indexPath.row].id
+                questionViewController.currentTopicID = currentTopicID
+            }
+        default:
+            break
+        }
+    }
+    
     // MARK: - Helper Methods
     
     func setupView() {

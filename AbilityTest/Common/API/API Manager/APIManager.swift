@@ -10,6 +10,11 @@ import UIKit
 
 enum AbilityTestAPI {
     static let topcisJSONFileName = "topics"
+    static let questionsJSONFileName = "questions"
+    static func getQuestionsJSONFileName(for topic: Int) -> String {
+        let filename = "\(questionsJSONFileName)-\(topic)"
+        return filename
+    }
 }
 
 class APIManager {
@@ -27,5 +32,24 @@ class APIManager {
             print(error.localizedDescription)
         }
         return topicItems
+    }
+    
+    static func loadQuestions(for topic: Int) -> [QuestionItem] {
+        var questions: [QuestionItem] = []
+        
+        do {
+            let filename = AbilityTestAPI.getQuestionsJSONFileName(for: topic)
+            
+            guard let questionsURL = Bundle.main.url(forResource: filename, withExtension: "json") else {
+                return questions
+            }
+            let questionsJSONData = try Data(contentsOf: questionsURL)
+            
+            questions = try JSONDecoder().decode([QuestionItem].self, from: questionsJSONData)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return questions
     }
 }

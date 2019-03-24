@@ -13,5 +13,5 @@ enum Segue {
     static let registerView = "registerView"
     static let pdfPreviewView = "pdfPreviewView"
     static let topicsCarouselView = "topicsCarouselView"
-    
+    static let questionsView = "questionsView"
 }

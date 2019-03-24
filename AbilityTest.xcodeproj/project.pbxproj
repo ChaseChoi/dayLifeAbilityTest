@@ -19,6 +19,7 @@
 		163540AE224235FF006880E3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163540AD224235FF006880E3 /* RegisterViewController.swift */; };
 		1650673122460B6C007A3C31 /* questions-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1650673022460B6C007A3C31 /* questions-1.json */; };
 		1650673322461046007A3C31 /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1650673222461046007A3C31 /* QuestionItem.swift */; };
+		1650673622462C26007A3C31 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1650673522462C26007A3C31 /* QuestionViewController.swift */; };
 		16A6ADC1224470A80090B441 /* TopicsCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6ADC0224470A80090B441 /* TopicsCarouselViewController.swift */; };
 		16E0A66122409320001F1728 /* Candidates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A65F22409320001F1728 /* Candidates.xcdatamodeld */; };
 		16E0A6632240CF75001F1728 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0A6622240CF75001F1728 /* MainViewController.swift */; };
@@ -47,6 +48,7 @@
 		163540AD224235FF006880E3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1650673022460B6C007A3C31 /* questions-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "questions-1.json"; sourceTree = "<group>"; };
 		1650673222461046007A3C31 /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
+		1650673522462C26007A3C31 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		16A6ADC0224470A80090B441 /* TopicsCarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsCarouselViewController.swift; sourceTree = "<group>"; };
 		16E0A66022409320001F1728 /* Candidates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Candidates.xcdatamodel; sourceTree = "<group>"; };
 		16E0A6622240CF75001F1728 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -154,9 +156,18 @@
 			path = Questions;
 			sourceTree = "<group>";
 		};
+		1650673422462C09007A3C31 /* Question View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1650673522462C26007A3C31 /* QuestionViewController.swift */,
+			);
+			path = "Question View Controller";
+			sourceTree = "<group>";
+		};
 		16A6ADBF224470510090B441 /* Topics Carousel View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1650673422462C09007A3C31 /* Question View Controller */,
 				16A6ADC0224470A80090B441 /* TopicsCarouselViewController.swift */,
 				162C396B22447E8C002613C1 /* TopicCollectionViewCell.swift */,
 			);
@@ -375,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1650673622462C26007A3C31 /* QuestionViewController.swift in Sources */,
 				16E0A67222421947001F1728 /* DetailViewController.swift in Sources */,
 				1611AC71224330CB002EF498 /* PDFPreviewViewController.swift in Sources */,
 				163540AE224235FF006880E3 /* RegisterViewController.swift in Sources */,

@@ -211,7 +211,7 @@
                                             <outlet property="backgroundColorView" destination="OKg-en-mYx" id="EKT-6e-Ea4"/>
                                             <outlet property="titleLabel" destination="O5l-o7-Shc" id="yRh-1j-HOh"/>
                                             <outlet property="topicGistLabel" destination="bID-5T-Web" id="b6e-0x-NRW"/>
-                                            <segue destination="K3a-A2-FLd" kind="showDetail" id="VO6-UE-uQW"/>
+                                            <segue destination="K3a-A2-FLd" kind="showDetail" identifier="questionsView" id="VO6-UE-uQW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -246,20 +246,77 @@
             </objects>
             <point key="canvasLocation" x="1779.6875" y="-250.19531249999997"/>
         </scene>
-        <!--View Controller-->
+        <!--Question View Controller-->
         <scene sceneID="ABG-ME-FWj">
             <objects>
-                <viewController id="K3a-A2-FLd" sceneMemberID="viewController">
+                <viewController id="K3a-A2-FLd" customClass="QuestionViewController" customModule="AbilityTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MyW-3G-xVw">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7l-iX-6P7">
+                                <rect key="frame" x="53" y="50" width="662" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhL-eX-N5P">
+                                <rect key="frame" x="210" y="159" width="348" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="option-0"/>
+                                <connections>
+                                    <action selector="optionTapped:" destination="K3a-A2-FLd" eventType="touchUpInside" id="6xR-4c-Xgg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cA2-gz-wPl">
+                                <rect key="frame" x="210" y="357" width="348" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="option-1"/>
+                                <connections>
+                                    <action selector="optionTapped:" destination="K3a-A2-FLd" eventType="touchUpInside" id="JK2-Fy-kxn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxa-Wo-Bjd">
+                                <rect key="frame" x="215" y="574" width="348" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="option-2"/>
+                                <connections>
+                                    <action selector="optionTapped:" destination="K3a-A2-FLd" eventType="touchUpInside" id="Lv7-in-h4B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1003" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p88-ad-c8e">
+                                <rect key="frame" x="215" y="779" width="348" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="option-3"/>
+                                <connections>
+                                    <action selector="optionTapped:" destination="K3a-A2-FLd" eventType="touchUpInside" id="Gdx-J2-GU6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="questionID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giA-vh-PVJ">
+                                <rect key="frame" x="632" y="50" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oft-ZV-y42">
+                                <rect key="frame" x="475" y="26" width="83" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xb6-nu-G2G"/>
                     </view>
+                    <connections>
+                        <outlet property="currentQuestionIDLabel" destination="giA-vh-PVJ" id="HXb-3m-wVm"/>
+                        <outlet property="questionContentLabel" destination="a7l-iX-6P7" id="BEl-jZ-Wjj"/>
+                        <outlet property="refImageView" destination="oft-ZV-y42" id="2a7-4q-78r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVY-Ml-CGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618" y="-247"/>
+            <point key="canvasLocation" x="2617.96875" y="-247.26562499999997"/>
         </scene>
         <!--Records-->
         <scene sceneID="SZL-xm-JZm">
