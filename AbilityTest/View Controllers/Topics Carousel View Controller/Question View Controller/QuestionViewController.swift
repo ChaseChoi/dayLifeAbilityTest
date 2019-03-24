@@ -49,8 +49,10 @@ class QuestionViewController: UIViewController {
             // Show Scores
             print("\(correctNumber)")
             if let currentTopicID = currentTopicID {
-                let message = "您已完成测试!"
-                let alertController = UIAlertController(title: "总分：\(correctNumber)分", message: message, preferredStyle: .alert)
+                let message = "你已顺利完成测试\(currentTopicID)！"
+                let title = "总分：\(correctNumber)分"
+            
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "好的", style: .default) { action -> Void in
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -62,7 +64,7 @@ class QuestionViewController: UIViewController {
     
     // MARK: - Helper Methods
     
-    func loadQuestions() {
+    func loadQuestions(){
         guard let currentTopicID = currentTopicID else {
             print("Unable to Get Topic ID")
             return
@@ -75,6 +77,7 @@ class QuestionViewController: UIViewController {
         
         // Get Current Question
         let currentQuestionData = questionItems[currentQuestionIndex]
+
         answerIndex = currentQuestionData.correctOptionIndex
         
         // Update UI

@@ -20,6 +20,7 @@ class TopicsCarouselViewController: UIViewController {
     
     private let itemsPerRow: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 50, left: 20, bottom: 50, right: 20)
+    private var currentTopicID = 1
     
     // Load Data
     var topicItems: [TopicCollectionItem] = APIManager.loadTopics()
@@ -44,15 +45,41 @@ class TopicsCarouselViewController: UIViewController {
         }
         switch identifier {
         case Segue.questionsView:
-            if let questionViewController = segue.destination as? QuestionViewController,
-                let cell = sender as? TopicCollectionViewCell,
-                let indexPath = self.topicCollectionView?.indexPath(for: cell) {
-                let currentTopicID = topicItems[indexPath.row].id
+            if let questionViewController = segue.destination as? QuestionViewController {
                 questionViewController.currentTopicID = currentTopicID
             }
         default:
             break
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        var flag = false
+        if identifier == Segue.questionsView {
+            
+            guard let cell = sender as? TopicCollectionViewCell,
+                let indexPath = self.topicCollectionView?.indexPath(for: cell) else {
+                    return flag
+                    
+            }
+            // Update currentTopicID
+            currentTopicID = topicItems[indexPath.row].id
+            
+            if Bundle.main.path(forResource: AbilityTestAPI.getQuestionsJSONFileName(for: currentTopicID), ofType: "json") != nil {
+                flag = true
+            }
+        }
+        if !flag {
+            let message = "请确认数据文件是否存在！"
+            let title = "数据载入失败"
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "好的", style: .default, handler: nil)
+            alertController.addAction(action)
+            present(alertController, animated: true, completion: nil)
+        }
+        return flag
     }
     
     // MARK: - Helper Methods
