@@ -114,6 +114,7 @@ class RegisterViewController: UIViewController {
         newCandidate.examiner = examiner
         newCandidate.id = id
         newCandidate.isIntellecuallyDisabled = isIntellectuallyDisabledButton.isOn
+        newCandidate.createAt = Date()
         
         self.newCandidate = newCandidate
     }

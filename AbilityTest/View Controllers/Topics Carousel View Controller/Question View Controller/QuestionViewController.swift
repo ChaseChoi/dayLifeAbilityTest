@@ -39,15 +39,11 @@ class QuestionViewController: UIViewController {
         if (currentQuestionIndex < questionItems.count) {
             if (sender.tag-1000 == answerIndex) {
                 correctNumber += 1
-                print("Yes!!\(sender.tag-1000) ==? \(answerIndex)")
-            } else {
-                print("Wrong! \(sender.tag-1000) ==? \(answerIndex)")
             }
-            
+            // TODO: Update Candidate Data
             displayNewQuestions()
         } else {
             // Show Scores
-            print("\(correctNumber)")
             if let currentTopicID = currentTopicID {
                 let message = "你已顺利完成测试\(currentTopicID)！"
                 let title = "总分：\(correctNumber)分"
