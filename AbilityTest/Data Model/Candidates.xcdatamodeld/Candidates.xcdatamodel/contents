@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Answer" representedClassName="Answer" syncable="YES" codeGenerationType="class">
+        <attribute name="chosenIndex" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isCorrect" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="topic" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="answers" inverseEntity="Topic" syncable="YES"/>
+    </entity>
     <entity name="Candidate" representedClassName="Candidate" syncable="YES" codeGenerationType="class">
         <attribute name="createAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="examiner" attributeType="String" syncable="YES"/>
@@ -8,24 +14,18 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="topics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Topic" inverseName="candidate" inverseEntity="Topic" syncable="YES"/>
     </entity>
-    <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
-        <attribute name="chosenIndex" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isCorrect" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="topic" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="questions" inverseEntity="Topic" syncable="YES"/>
-    </entity>
     <entity name="Topic" representedClassName="Topic" syncable="YES" codeGenerationType="class">
         <attribute name="finishAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="questionNumbers" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="startAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Answer" inverseName="topic" inverseEntity="Answer" syncable="YES"/>
         <relationship name="candidate" maxCount="1" deletionRule="Nullify" destinationEntity="Candidate" inverseName="topics" inverseEntity="Candidate" syncable="YES"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Question" inverseName="topic" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
         <element name="Candidate" positionX="-282.05859375" positionY="-9.390625" width="128" height="135"/>
-        <element name="Question" positionX="191.33203125" positionY="60.01953125" width="128" height="105"/>
+        <element name="Answer" positionX="191.33203125" positionY="60.01953125" width="128" height="105"/>
         <element name="Topic" positionX="-36" positionY="45" width="128" height="150"/>
     </elements>
 </model>
