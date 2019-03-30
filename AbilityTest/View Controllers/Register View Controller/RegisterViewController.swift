@@ -14,9 +14,9 @@ class RegisterViewController: UIViewController {
     
     // MARK: @IBOutlets
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var idTextField: UITextField!
-    @IBOutlet weak var examinerTextField: UITextField!
+    @IBOutlet weak var nameTextField: RegisterTextField!
+    @IBOutlet weak var idTextField: RegisterTextField!
+    @IBOutlet weak var examinerTextField: RegisterTextField!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var isIntellectuallyDisabledButton: UISwitch!
@@ -32,7 +32,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
         setupDelegate()
+        setupTextfieldIsNotEmpty()
         setupNotificationHandling()
     }
     
@@ -82,6 +84,7 @@ class RegisterViewController: UIViewController {
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
+        
         if notification.name == UIResponder.keyboardWillChangeFrameNotification
             || notification.name == UIResponder.keyboardWillShowNotification {
             // Move Up
@@ -97,6 +100,38 @@ class RegisterViewController: UIViewController {
         nameTextField.delegate = self
         idTextField.delegate = self
         examinerTextField.delegate = self
+    }
+    
+    // Text field
+    func setupTextfieldIsNotEmpty() {
+        continueButton.isEnabled = false
+        
+        nameTextField.addTarget(self, action: #selector(textFieldIsNotEmpty(_:)), for: .editingChanged)
+        idTextField.addTarget(self, action: #selector(textFieldIsNotEmpty(_:)), for: .editingChanged)
+        examinerTextField.addTarget(self, action: #selector(textFieldIsNotEmpty(_:)), for: .editingChanged)
+    }
+    
+    @objc func textFieldIsNotEmpty(_ sender: UITextField) {
+        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
+        
+        guard let name = nameTextField.text, !name.isEmpty,
+        let id = idTextField.text, !id.isEmpty,
+        let examiner = examinerTextField.text, !examiner.isEmpty else {
+            continueButton.isEnabled = false
+            return
+        }
+        continueButton.isEnabled = true
+    }
+    
+    func setupView() {
+        
+        // Configure switch
+        isIntellectuallyDisabledButton.onTintColor = UIColor(red: 24/255, green: 139/255, blue: 247/255, alpha: 1)
+        
+        // Configure buttons
+        continueButton.applyRegisterViewButtonStyle()
+        closeButton.applyRegisterViewButtonStyle()
+        
     }
     
     // MARK: - @IBActions
@@ -134,4 +169,14 @@ extension RegisterViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+extension UIButton {
+    func applyRegisterViewButtonStyle() {
+        self.layer.cornerRadius = 5
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
 }
