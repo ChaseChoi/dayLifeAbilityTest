@@ -20,16 +20,15 @@ class QuestionViewController: UIViewController {
     
     private var currentQuestionIndex = 0
     private var answerIndex = 0
-    private var questionItems: [QuestionItem] = []
     private var correctNumber = 0
-    var currentTopicID: Int?
+    
+    var questionItems: [QuestionItem]!
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadQuestions()
         displayNewQuestions()
     }
     
@@ -44,36 +43,26 @@ class QuestionViewController: UIViewController {
             displayNewQuestions()
         } else {
             // Show Scores
-            if let currentTopicID = currentTopicID {
-                let message = "你已顺利完成测试\(currentTopicID)！"
-                let title = "总分：\(correctNumber)分"
-            
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "好的", style: .default) { action -> Void in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                alertController.addAction(action)
-                present(alertController, animated: true, completion: nil)
+            let message = "你已顺利完成测试!"
+            let title = "总分：\(correctNumber)分"
+        
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "好的", style: .default) { action -> Void in
+                self.dismiss(animated: true, completion: nil)
             }
+            alertController.addAction(action)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
     // MARK: - Helper Methods
-    
-    func loadQuestions(){
-        guard let currentTopicID = currentTopicID else {
-            print("Unable to Get Topic ID")
-            return
-        }
-        questionItems = APIManager.loadQuestions(for: currentTopicID)
-    }
     
     func displayNewQuestions() {
         var button: UIButton = UIButton()
         
         // Get Current Question
         let currentQuestionData = questionItems[currentQuestionIndex]
-
+        
         answerIndex = currentQuestionData.correctOptionIndex
         
         // Update UI

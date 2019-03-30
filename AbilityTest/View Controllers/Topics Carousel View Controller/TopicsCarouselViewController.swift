@@ -20,10 +20,10 @@ class TopicsCarouselViewController: UIViewController {
     
     private let itemsPerRow: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 50, left: 20, bottom: 50, right: 20)
-    private var currentTopicID = 1
     
-    // Load Data
+    // Load Topics
     var topicItems: [TopicCollectionItem] = APIManager.loadTopics()
+    var questionItems: [QuestionItem]?
     
     // MARK: - View Life Cycle
     
@@ -45,8 +45,8 @@ class TopicsCarouselViewController: UIViewController {
         }
         switch identifier {
         case Segue.questionsView:
-            if let questionViewController = segue.destination as? QuestionViewController {
-                questionViewController.currentTopicID = currentTopicID
+            if let questionViewController = segue.destination as? QuestionViewController, let questionItems = questionItems {
+                questionViewController.questionItems = questionItems
             }
         default:
             break
@@ -63,10 +63,10 @@ class TopicsCarouselViewController: UIViewController {
                     return flag
                     
             }
-            // Update currentTopicID
-            currentTopicID = topicItems[indexPath.row].id
-            
-            if Bundle.main.path(forResource: AbilityTestAPI.getQuestionsJSONFileName(for: currentTopicID), ofType: "json") != nil {
+            // Check Question File
+            let currentTopicID = topicItems[indexPath.row].id
+            questionItems = APIManager.loadQuestions(for: currentTopicID)
+            if questionItems?.count != 0 {
                 flag = true
             }
         }
