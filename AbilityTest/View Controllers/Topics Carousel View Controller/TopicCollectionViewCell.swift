@@ -11,14 +11,14 @@ import UIKit
 class TopicCollectionViewCell: UICollectionViewCell {
     
     // MARK: - @IBOutlets
-    
-    @IBOutlet weak var topicGistLabel: UILabel!
+    @IBOutlet weak var finishStatusLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backgroundColorView: UIView!
     
     // MARK: - Properties
     
     static let identifier = "topicItemCell"
+    private let status = ["已完成", "未完成"]
     
     var topicItem: TopicCollectionItem! {
         didSet {
@@ -28,11 +28,12 @@ class TopicCollectionViewCell: UICollectionViewCell {
     
     private func updateView() {
         if let topicItem = topicItem {
-            topicGistLabel.text = topicItem.gist
+            let statusIndex = topicItem.finishStatus ? 0 : 1
             titleLabel.text = topicItem.title
+            finishStatusLabel.text = status[statusIndex]
         } else {
-            topicGistLabel.text = nil
             titleLabel.text = nil
+            finishStatusLabel.text = nil
         }
     }
     

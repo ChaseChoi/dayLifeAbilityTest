@@ -12,4 +12,5 @@ struct TopicCollectionItem: Decodable {
     let id: Int
     let title: String
     let gist: String
+    let finishStatus: Bool
 }
