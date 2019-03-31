@@ -13,6 +13,7 @@ class TopicsCarouselViewController: UIViewController {
     // MARK: - @IBOutlets
     
     @IBOutlet weak var topicCollectionView: UICollectionView!
+    @IBOutlet weak var closeButton: UIButton!
     
     // MARK: - Properites
     
@@ -55,7 +56,7 @@ class TopicsCarouselViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        var flag = false
+        var flag = true
         if identifier == Segue.questionsView {
             
             guard let cell = sender as? TopicCollectionViewCell,
@@ -66,19 +67,19 @@ class TopicsCarouselViewController: UIViewController {
             // Check Question File
             let currentTopicID = topicItems[indexPath.row].id
             questionItems = APIManager.loadQuestions(for: currentTopicID)
-            if questionItems?.count != 0 {
-                flag = true
+            
+            if questionItems?.count == 0 {
+                flag = false
+                let message = "请确认数据文件是否存在！"
+                let title = "数据载入失败"
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "好的", style: .default, handler: nil)
+                alertController.addAction(action)
+                present(alertController, animated: true, completion: nil)
             }
         }
-        if !flag {
-            let message = "请确认数据文件是否存在！"
-            let title = "数据载入失败"
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "好的", style: .default, handler: nil)
-            alertController.addAction(action)
-            present(alertController, animated: true, completion: nil)
-        }
+        
         return flag
     }
     
@@ -89,6 +90,10 @@ class TopicsCarouselViewController: UIViewController {
         
         topicCollectionView.delegate = self
         topicCollectionView.dataSource = self
+        
+        // Configure close button
+        closeButton.applyRegisterViewButtonStyle()
+        closeButton.layer.cornerRadius = closeButton.frame.height/2
     }
     
 }
