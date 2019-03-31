@@ -236,16 +236,42 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-ed-ENq">
-                                            <rect key="frame" x="16" y="0.0" width="145" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-ed-ENq">
+                                            <rect key="frame" x="16" y="5" width="288" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="re5-5V-kwY">
+                                            <rect key="frame" x="16" y="25" width="288" height="14.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建于" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebs-i7-fze">
+                                                    <rect key="frame" x="0.0" y="0.0" width="37" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD7-ga-LgQ">
+                                                    <rect key="frame" x="39" y="0.0" width="249" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="re5-5V-kwY" firstAttribute="trailing" secondItem="rYm-ed-ENq" secondAttribute="trailing" id="2Hm-Bp-p5o"/>
+                                        <constraint firstItem="rYm-ed-ENq" firstAttribute="leading" secondItem="j2W-7k-vCZ" secondAttribute="leading" constant="16" id="7VZ-wI-SsS"/>
+                                        <constraint firstAttribute="bottom" secondItem="re5-5V-kwY" secondAttribute="bottom" constant="4" id="VId-MK-mql"/>
+                                        <constraint firstItem="rYm-ed-ENq" firstAttribute="top" secondItem="j2W-7k-vCZ" secondAttribute="top" constant="5" id="YaC-z1-o88"/>
+                                        <constraint firstItem="re5-5V-kwY" firstAttribute="leading" secondItem="rYm-ed-ENq" secondAttribute="leading" id="dyB-TN-Mgf"/>
+                                        <constraint firstItem="re5-5V-kwY" firstAttribute="top" secondItem="rYm-ed-ENq" secondAttribute="bottom" constant="3" id="eUO-aI-D9N"/>
+                                        <constraint firstAttribute="trailing" secondItem="rYm-ed-ENq" secondAttribute="trailing" constant="16" id="x4r-d1-czm"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="createDateLabel" destination="bD7-ga-LgQ" id="2P1-vG-REO"/>
                                     <outlet property="nameLabel" destination="rYm-ed-ENq" id="tvp-lW-G07"/>
                                 </connections>
                             </tableViewCell>

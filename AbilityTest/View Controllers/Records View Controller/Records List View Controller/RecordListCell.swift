@@ -13,6 +13,7 @@ class RecordListCell: UITableViewCell {
     // MARK: IBOutlets
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var createDateLabel: UILabel!
     
     
     // MARK: - Properties
@@ -26,8 +27,13 @@ class RecordListCell: UITableViewCell {
     }
     
     func updateView() {
-        if let name = candidate?.name {
+        if let name = candidate?.name, let createDate = candidate?.createAt {
             nameLabel.text = name
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .short
+            dateFormatter.locale = Locale(identifier: "zh_CN")
+            createDateLabel.text = dateFormatter.string(from: createDate)
         } else {
             nameLabel.text = "未知"
         }
