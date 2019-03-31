@@ -108,6 +108,8 @@ extension RecordsListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCandidate = fetchedResultsController.object(at: indexPath)
+        
+        // Pass Data to Detail View Controller
         delegate?.recordSelected(selectedCandidate)
         
         if let detailViewController = delegate as? DetailViewController,

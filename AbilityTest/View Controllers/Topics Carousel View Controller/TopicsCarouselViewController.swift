@@ -26,6 +26,7 @@ class TopicsCarouselViewController: UIViewController {
     var topicItems: [TopicCollectionItem] = APIManager.loadTopics()
     var questionItems: [QuestionItem]?
     var selectedTopicItemIndex: Int?
+    var topicPassed: Topic?
     
     // MARK: - View Life Cycle
     
@@ -49,10 +50,13 @@ class TopicsCarouselViewController: UIViewController {
         case Segue.questionsView:
             if let questionViewController = segue.destination as? QuestionViewController,
                 let questionItems = questionItems,
-            let managedObjectContext = candidate?.managedObjectContext,
-            let selectedTopicItemIndex = selectedTopicItemIndex {
+            let selectedTopicItemIndex = selectedTopicItemIndex,
+                let managedObjectContext = candidate?.managedObjectContext {
+                
                 // Create Topic Object
                 let topic = Topic(context: managedObjectContext)
+                // Record the Topic Object
+                topicPassed = topic
                 
                 // Delegate
                 questionViewController.delegate = self
@@ -182,6 +186,12 @@ extension TopicsCarouselViewController: UICollectionViewDelegateFlowLayout {
 
 extension TopicsCarouselViewController: QuestionViewControllerDelegate {
     func questionViewController(_ controller: QuestionViewController, didFinishTopicItemIndex: Int) {
+        guard let candidate = candidate, let topicFinished = topicPassed  else {
+            return
+        }
+        
+        // Add to current candidate
+        candidate.addToTopics(topicFinished)
         
         // Update collection view data source
         topicItems[didFinishTopicItemIndex].finishStatus = true
