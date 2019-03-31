@@ -17,7 +17,9 @@ class RecordsListViewController: UITableViewController {
     
     // MARK: - Properties
     
+    var searchController: UISearchController!
     var managedObjectContext: NSManagedObjectContext?
+    var searchResults: [Candidate] = []
     
     // MARK: Delegate
     
@@ -51,11 +53,27 @@ class RecordsListViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "测试"
-        
         fetchRecords()
+        setupView()
     }
     
     // MARK: - Helper Methods
+    
+    func setupView() {
+        searchController = UISearchController(searchResultsController: nil)
+        tableView.tableHeaderView = searchController.searchBar
+        
+        configureSearchController()
+    }
+    
+    func configureSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        // Configure appearance of sesarch bar
+        searchController.searchBar.placeholder = "请输入编号或姓名..."
+        searchController.searchBar.searchBarStyle = UISearchBar.Style.prominent
+    }
     
     func fetchRecords() {
         do {
@@ -107,7 +125,13 @@ extension RecordsListViewController {
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCandidate = fetchedResultsController.object(at: indexPath)
+        let selectedCandidate: Candidate
+        if searchController.isActive {
+            selectedCandidate = searchResults[indexPath.row]
+            searchController.searchBar.endEditing(true)
+        } else {
+            selectedCandidate = fetchedResultsController.object(at: indexPath)
+        }
         
         // Pass Data to Detail View Controller
         delegate?.recordSelected(selectedCandidate)
@@ -124,14 +148,22 @@ extension RecordsListViewController {
         guard let sections = fetchedResultsController.sections else {
             return 0
         }
-        return sections.count
+        if searchController.isActive {
+            return 1
+        } else {
+            return sections.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sections = fetchedResultsController.sections?[section] else {
             return 0
         }
-        return sections.numberOfObjects
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return sections.numberOfObjects
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -156,13 +188,51 @@ extension RecordsListViewController {
         managedObjectContext?.delete(candidate)
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchController.isActive {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    
     // MARK: - Helper Methods
     func configure(_ cell: RecordListCell, at indexPath: IndexPath) {
+        let candidate: Candidate
         // Fetch Candidate
-        let candidate = fetchedResultsController.object(at: indexPath)
+        if searchController.isActive {
+            candidate = searchResults[indexPath.row]
+        } else {
+            candidate = fetchedResultsController.object(at: indexPath)
+        }
         // Configure Cell
         cell.candidate = candidate
     }
     
+}
+
+extension RecordsListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let keyword = searchController.searchBar.text {
+            filterContent(for: keyword)
+            tableView.reloadData()
+        }
+    }
     
+    func filterContent(for keyword: String) {
+        guard let fetchedObjects = fetchedResultsController.fetchedObjects else {
+            return
+        }
+        searchResults = fetchedObjects.filter {
+            if let name = $0.name, let id = $0.id {
+                let isMatch = name.localizedCaseInsensitiveContains(keyword) || id.localizedCaseInsensitiveContains(keyword)
+                return isMatch
+            }
+            return false
+        }
+    }
 }
