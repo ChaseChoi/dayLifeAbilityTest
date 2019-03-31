@@ -20,7 +20,7 @@ class TopicsCarouselViewController: UIViewController {
     var candidate: Candidate?
     
     private let itemsPerRow: CGFloat = 3
-    private let sectionInsets = UIEdgeInsets(top: 50, left: 20, bottom: 50, right: 20)
+    private let sectionInsets = UIEdgeInsets(top: 50, left: 45, bottom: 50, right: 45)
     
     // Load Topics
     var topicItems: [TopicCollectionItem] = APIManager.loadTopics()
@@ -73,35 +73,56 @@ class TopicsCarouselViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        var flag = true
         if identifier == Segue.questionsView {
             
             guard let cell = sender as? TopicCollectionViewCell,
                 let indexPath = self.topicCollectionView?.indexPath(for: cell) else {
-                    return flag
+                    return false
                     
             }
             
             // Update selected index
             selectedTopicItemIndex = indexPath.row
             
+            // Check finish status
+            if let selectedIndex = selectedTopicItemIndex {
+                let finishStatus = topicItems[selectedIndex].finishStatus
+                if finishStatus {
+                    // Configure alert info
+                    let message = "请选择未完成的测试项目！"
+                    let title = "项目已完成"
+                    
+                    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "好的", style: .default, handler: nil)
+                    alertController.addAction(action)
+                    present(alertController, animated: true, completion: nil)
+                    
+                    return false
+                }
+            }
+            
+            
             // Check Question File
             let currentTopicID = topicItems[indexPath.row].id
             questionItems = APIManager.loadQuestions(for: currentTopicID)
             
             if questionItems?.count == 0 {
-                flag = false
+                
+                // Configure alert info
                 let message = "请确认数据文件是否存在！"
                 let title = "数据载入失败"
-                
+               
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 let action = UIAlertAction(title: "好的", style: .default, handler: nil)
                 alertController.addAction(action)
                 present(alertController, animated: true, completion: nil)
+                
+                return false
             }
+            
         }
         
-        return flag
+        return true
     }
     
     // MARK: - Helper Methods
@@ -163,14 +184,13 @@ extension TopicsCarouselViewController: QuestionViewControllerDelegate {
     func questionViewController(_ controller: QuestionViewController, didFinishTopicItemIndex: Int) {
         
         // Update collection view data source
-        var finishedTopicItem = topicItems[didFinishTopicItemIndex]
-        finishedTopicItem.finishStatus = true
+        topicItems[didFinishTopicItemIndex].finishStatus = true
         
         // Update view
         let indexPath = IndexPath(row: didFinishTopicItemIndex, section: 0)
         
         if let cell = topicCollectionView.cellForItem(at: indexPath) as? TopicCollectionViewCell {
-            cell.topicItem = finishedTopicItem
+            cell.topicItem = topicItems[didFinishTopicItemIndex]
         }
         
         // Dismiss
