@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol QuestionViewControllerDelegate: class {
+    func questionViewController(_ controller: QuestionViewController, didFinishTopicItemIndex: Int)
+}
+
 class QuestionViewController: UIViewController {
     
     // MARK: - @IBOutlets
@@ -24,8 +28,15 @@ class QuestionViewController: UIViewController {
     
     private var answers: Set<Answer> = []
     
+    // Dependency Injection
+    
     var questionItems: [QuestionItem]!
     var currentTopic: Topic!
+    var currentTopicItemIndex: Int!
+    
+    // Delegate
+    
+    var delegate: QuestionViewControllerDelegate?
     
     // MARK: - View Life Cycle
     
@@ -75,7 +86,8 @@ class QuestionViewController: UIViewController {
         
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "好的", style: .default) { action -> Void in
-                self.dismiss(animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
+                self.delegate?.questionViewController(self, didFinishTopicItemIndex: self.currentTopicItemIndex)
             }
             alertController.addAction(action)
             present(alertController, animated: true, completion: nil)

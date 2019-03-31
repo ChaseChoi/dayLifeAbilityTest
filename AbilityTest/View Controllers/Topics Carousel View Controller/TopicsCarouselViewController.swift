@@ -25,6 +25,7 @@ class TopicsCarouselViewController: UIViewController {
     // Load Topics
     var topicItems: [TopicCollectionItem] = APIManager.loadTopics()
     var questionItems: [QuestionItem]?
+    var selectedTopicItemIndex: Int?
     
     // MARK: - View Life Cycle
     
@@ -48,9 +49,14 @@ class TopicsCarouselViewController: UIViewController {
         case Segue.questionsView:
             if let questionViewController = segue.destination as? QuestionViewController,
                 let questionItems = questionItems,
-            let managedObjectContext = candidate?.managedObjectContext {
+            let managedObjectContext = candidate?.managedObjectContext,
+            let selectedTopicItemIndex = selectedTopicItemIndex {
                 // Create Topic Object
                 let topic = Topic(context: managedObjectContext)
+                
+                // Delegate
+                questionViewController.delegate = self
+                
                 // Configure Topic Object
                 topic.startAt = Date()
                 topic.questionNumbers = Int32(questionItems.count)
@@ -58,6 +64,7 @@ class TopicsCarouselViewController: UIViewController {
                 
                 questionViewController.questionItems = questionItems
                 questionViewController.currentTopic = topic
+                questionViewController.currentTopicItemIndex = selectedTopicItemIndex
             }
         default:
             break
@@ -74,6 +81,10 @@ class TopicsCarouselViewController: UIViewController {
                     return flag
                     
             }
+            
+            // Update selected index
+            selectedTopicItemIndex = indexPath.row
+            
             // Check Question File
             let currentTopicID = topicItems[indexPath.row].id
             questionItems = APIManager.loadQuestions(for: currentTopicID)
@@ -145,5 +156,24 @@ extension TopicsCarouselViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+extension TopicsCarouselViewController: QuestionViewControllerDelegate {
+    func questionViewController(_ controller: QuestionViewController, didFinishTopicItemIndex: Int) {
+        
+        // Update collection view data source
+        var finishedTopicItem = topicItems[didFinishTopicItemIndex]
+        finishedTopicItem.finishStatus = true
+        
+        // Update view
+        let indexPath = IndexPath(row: didFinishTopicItemIndex, section: 0)
+        
+        if let cell = topicCollectionView.cellForItem(at: indexPath) as? TopicCollectionViewCell {
+            cell.topicItem = finishedTopicItem
+        }
+        
+        // Dismiss
+        dismiss(animated: true, completion: nil)
     }
 }

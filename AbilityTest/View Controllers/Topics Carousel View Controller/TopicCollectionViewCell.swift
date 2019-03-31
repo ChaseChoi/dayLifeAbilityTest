@@ -18,7 +18,7 @@ class TopicCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     static let identifier = "topicItemCell"
-    private let status = ["已完成", "未完成"]
+    private let status = ["🌟已完成🌟", "未完成"]
     
     var topicItem: TopicCollectionItem! {
         didSet {
