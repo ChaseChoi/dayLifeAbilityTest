@@ -22,7 +22,10 @@ class QuestionViewController: UIViewController {
     private var answerIndex = 0
     private var correctNumber = 0
     
+    private var answers: Set<Answer> = []
+    
     var questionItems: [QuestionItem]!
+    var currentTopic: Topic!
     
     // MARK: - View Life Cycle
     
@@ -35,13 +38,37 @@ class QuestionViewController: UIViewController {
     // MARK: - @IBActions
     
     @IBAction func optionTapped(_ sender: AnyObject) {
+        guard let managedObjectContext = currentTopic.managedObjectContext else {
+            return
+        }
         if (currentQuestionIndex < questionItems.count) {
-            if (sender.tag-1000 == answerIndex) {
+            let userOption = sender.tag - 1000
+            
+            // Create Answer Object
+            let currentAnswer = Answer(context: managedObjectContext)
+            currentAnswer.chosenIndex = Int32(userOption)
+            currentAnswer.id = Int32(questionItems[currentQuestionIndex].id)
+            
+            // Check Answer
+            if (userOption == answerIndex) {
                 correctNumber += 1
+                currentAnswer.isCorrect = true
+            } else {
+                currentAnswer.isCorrect = false
             }
-            // TODO: Update Candidate Data
+            
+            // Add to answers array
+            answers.insert(currentAnswer)
+            
             displayNewQuestions()
         } else {
+            // Update Data
+            currentTopic.finishAt = Date()
+            currentTopic.score = Int32(correctNumber)
+            
+            // Update Relationship
+            currentTopic.addToAnswers(answers as NSSet)
+            
             // Show Scores
             let message = "你已顺利完成测试!"
             let title = "总分：\(correctNumber)分"

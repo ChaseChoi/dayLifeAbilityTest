@@ -46,8 +46,18 @@ class TopicsCarouselViewController: UIViewController {
         }
         switch identifier {
         case Segue.questionsView:
-            if let questionViewController = segue.destination as? QuestionViewController, let questionItems = questionItems {
+            if let questionViewController = segue.destination as? QuestionViewController,
+                let questionItems = questionItems,
+            let managedObjectContext = candidate?.managedObjectContext {
+                // Create Topic Object
+                let topic = Topic(context: managedObjectContext)
+                // Configure Topic Object
+                topic.startAt = Date()
+                topic.questionNumbers = Int32(questionItems.count)
+                topic.id = Int32(questionItems[0].topic)
+                
                 questionViewController.questionItems = questionItems
+                questionViewController.currentTopic = topic
             }
         default:
             break

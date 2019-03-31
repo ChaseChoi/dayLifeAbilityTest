@@ -250,7 +250,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic Gist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bID-5T-Web">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bID-5T-Web">
                                                             <rect key="frame" x="20" y="383" width="376" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,7 +278,7 @@
                                         <connections>
                                             <outlet property="backgroundColorView" destination="OKg-en-mYx" id="EKT-6e-Ea4"/>
                                             <outlet property="titleLabel" destination="O5l-o7-Shc" id="yRh-1j-HOh"/>
-                                            <outlet property="topicGistLabel" destination="bID-5T-Web" id="b6e-0x-NRW"/>
+                                            <outlet property="topicGistLabel" destination="bID-5T-Web" id="8yG-ZT-Kxa"/>
                                             <segue destination="K3a-A2-FLd" kind="showDetail" identifier="questionsView" id="VO6-UE-uQW"/>
                                         </connections>
                                     </collectionViewCell>
