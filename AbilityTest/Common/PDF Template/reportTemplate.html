@@ -1,129 +1,458 @@
-<!DOCTYPE html>
-<html lang="zh_CN" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Report Form</title>
-    <style type="text/css">
-      .tg {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-      .tg td {
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        padding: 10px 5px;
-        border-style: solid;
-        border-width: 1px;
-        overflow: hidden;
-        word-break: normal;
-        border-color: black;
-      }
-      .tg th {
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        font-weight: normal;
-        padding: 10px 5px;
-        border-style: solid;
-        border-width: 1px;
-        overflow: hidden;
-        word-break: normal;
-        border-color: black;
-      }
-      .tg .tg-lqy6 {
-        text-align: right;
-        vertical-align: top;
-      }
-      .tg .tg-0lax {
-        text-align: left;
-        vertical-align: top;
-      }
-    </style>
-  </head>
-  <body>
-    <table class="tg">
-      <tr>
-        <th class="tg-0pky">姓名</th>
-        <th class="tg-0lax"></th>
-        <th class="tg-0lax">编号</th>
-        <th class="tg-0lax"></th>
-        <th class="tg-0lax">类型</th>
-        <th class="tg-0lax"></th>
-      </tr>
-      <tr>
-        <td class="tg-0lax">主试</td>
-        <td class="tg-0lax"></td>
-        <td class="tg-0lax">日期</td>
-        <td class="tg-0lax"></td>
-        <td class="tg-0lax">已测</td>
-        <td class="tg-lqy6">项</td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">测验项目</td>
-        <td class="tg-0lax" colspan="2">测试内容</td>
-        <td class="tg-0lax" colspan="2">分数</td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">1. 基本概念</td>
-        <td class="tg-0lax" colspan="2">颜色辨别、空间的知识、数量的概念</td>
-        <td class="tg-0lax" colspan="3"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">2. 功能性标识</td>
-        <td class="tg-0lax" colspan="2">公共设施、公共场所及公共服务标志的认识</td>
-        <td class="tg-0lax" colspan="3"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">3. 工具</td>
-        <td class="tg-0lax" colspan="2">考察对工具的识别及特殊工具的使用知识</td>
-        <td class="tg-0lax" colspan="3"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">4. 家庭管理</td>
-        <td class="tg-0lax" colspan="2">家庭劳动、食物处理、衣物维护</td>
-        <td class="tg-0lax" colspan="3"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">5. 健康与安全</td>
-        <td class="tg-0lax" colspan="2">日常生活中的个人卫生、急救及安全的知识</td>
-        <td class="tg-0lax" colspan="3"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">6. 公共服务</td>
-        <td class="tg-0lax" colspan="2">公共设施的利用及拨打电话并用电话进行查询服务</td>
-        <td class="tg-0lax" colspan="3"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">7. 时间</td>
-        <td class="tg-0lax" colspan="2">理解与时间相关的概念及读时间（包括时钟时间、电子钟时间、日历时间）</td>
-        <td class="tg-0lax" colspan="2"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="2">8. 金钱</td>
-        <td class="tg-0lax" colspan="2">货币的辨认、货币的等价认识、货币的使用</td>
-        <td class="tg-0lax" colspan="2"></td>
-      </tr>
-
-
-      <tr>
-        <td class="tg-0lax" colspan="4">总分</td>
-        <td class="tg-0lax" colspan="2"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="6">*注：每项分测验满分24分，总分216分。</td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="6">社会独立生活技能结果分数解释：</td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="6"></td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="6">总体评价：</td>
-      </tr>
-      <tr>
-        <td class="tg-0lax" colspan="6"></td>
-      </tr>
-    </table>
-
-  </body>
+<html>
+    
+    <head>
+        <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+            <meta name=Generator content="Microsoft Word 15 (filtered)">
+                <style>
+                    <!--
+                    /* Font Definitions */
+                    @font-face
+                    {font-family:SimSun;
+                        panose-1:2 1 6 0 3 1 1 1 1 1;}
+                @font-face
+                {font-family:SimHei;
+                    panose-1:2 1 6 9 6 1 1 1 1 1;}
+                @font-face
+                {font-family:"Cambria Math";
+                    panose-1:2 4 5 3 5 4 6 3 2 4;}
+                @font-face
+                {font-family:Calibri;
+                    panose-1:2 15 5 2 2 2 4 3 2 4;}
+                @font-face
+                {font-family:FangSong_GB2312;
+                    panose-1:2 11 6 4 2 2 2 2 2 4;}
+                @font-face
+                {font-family:"\@SimHei";
+                    panose-1:2 1 6 0 3 1 1 1 1 1;}
+                @font-face
+                {font-family:"\@FangSong_GB2312";}
+                @font-face
+                {font-family:"\@SimSun";
+                    panose-1:2 1 6 0 3 1 1 1 1 1;}
+                /* Style Definitions */
+                p.MsoNormal, li.MsoNormal, div.MsoNormal
+                {margin:0cm;
+                    margin-bottom:.0001pt;
+                    text-align:justify;
+                    text-justify:inter-ideograph;
+                    font-size:10.5pt;
+                    font-family:"Calibri",sans-serif;}
+                p.MsoHeader, li.MsoHeader, div.MsoHeader
+                {mso-style-link:"Header Char";
+                    margin:0cm;
+                    margin-bottom:.0001pt;
+                    text-align:center;
+                    layout-grid-mode:char;
+                    border:none;
+                    padding:0cm;
+                    font-size:9.0pt;
+                    font-family:"Calibri",sans-serif;}
+                p.MsoFooter, li.MsoFooter, div.MsoFooter
+                {mso-style-link:"Footer Char";
+                    margin:0cm;
+                    margin-bottom:.0001pt;
+                    layout-grid-mode:char;
+                    font-size:9.0pt;
+                    font-family:"Calibri",sans-serif;}
+                p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+                {mso-style-link:"Balloon Text Char";
+                    margin:0cm;
+                    margin-bottom:.0001pt;
+                    text-align:justify;
+                    text-justify:inter-ideograph;
+                    font-size:9.0pt;
+                    font-family:"Calibri",sans-serif;}
+                span.HeaderChar
+                {mso-style-name:"Header Char";
+                    mso-style-link:Header;}
+                span.FooterChar
+                {mso-style-name:"Footer Char";
+                    mso-style-link:Footer;}
+                span.BalloonTextChar
+                {mso-style-name:"Balloon Text Char";
+                    mso-style-link:"Balloon Text";}
+                .MsoChpDefault
+                {font-family:"Calibri",sans-serif;}
+                /* Page Definitions */
+                @page WordSection1
+                {size:595.3pt 841.9pt;
+                    margin:72.0pt 90.0pt 72.0pt 90.0pt;
+                    layout-grid:15.6pt;}
+                div.WordSection1
+                {page:WordSection1;}
+                /* List Definitions */
+                ol
+                {margin-bottom:0cm;}
+                ul
+                {margin-bottom:0cm;}
+                -->
+                    </style>
+                
+    </head>
+    
+    <body lang=EN-US style='text-justify-trim:punctuation'>
+        
+        <div class=WordSection1 style='layout-grid:15.6pt'>
+            
+            <p class=MsoNormal align=center style='text-align:center'><span lang=ZH-CN
+                style='font-size:22.0pt;font-family:SimHei'>日常生活活动能力评估报告</span></p>
+            
+            <p class=MsoNormal><u><span style='font-family:FangSong_GB2312'><span
+                style='text-decoration:none'>&nbsp;</span></span></u></p>
+            
+            <div align=center>
+                
+                <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+                    style='border-collapse:collapse;border:none'>
+                    <tr style='height:19.85pt'>
+                        <td width=85 style='width:63.75pt;border:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>姓名</span></b></p>
+                        </td>
+                        <td width=83 style='width:62.15pt;border:solid black 1.0pt;border-left:none;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@NAME@</span></p>
+                        </td>
+                        <td width=85 style='width:63.8pt;border-top:solid black 1.0pt;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>编号</span></b></p>
+                        </td>
+                        <td width=151 style='width:4.0cm;border:solid black 1.0pt;border-left:none;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+                                FangSong_GB2312'>@ID@</span></p>
+                        </td>
+                        <td width=94 style='width:70.85pt;border-top:solid black 1.0pt;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>类</span></b><b><span style='font-family:
+                                    FangSong_GB2312'>    <span lang=ZH-CN>型</span></span></b></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:solid black 1.0pt;
+                            border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+                                FangSong_GB2312'>@TYPE@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=85 style='width:63.75pt;border-top:none;border-left:solid black 1.0pt;
+                            border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>主试</span></b></p>
+                        </td>
+                        <td width=83 style='width:62.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@EXAMINER@</span></p>
+                        </td>
+                        <td width=85 style='width:63.8pt;border-top:none;border-left:none;border-bottom:
+                            solid black 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>日期</span></b></p>
+                        </td>
+                        <td width=151 style='width:4.0cm;border-top:none;border-left:none;border-bottom:
+                            solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+                                FangSong_GB2312'>@DATE@</span></p>
+                        </td>
+                        <td width=94 style='width:70.85pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>已测测验</span></b></p>
+                        </td>
+                        <td width=28 style='width:21.3pt;border:none;border-bottom:solid black 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+                                FangSong_GB2312'>@NUMBER@</span></p>
+                        </td>
+                        <td width=41 style='width:30.85pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal align=left style='margin-right:-8.95pt;text-align:left'><span
+                                lang=ZH-CN style='font-family:FangSong_GB2312'>项</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>分测验项目</span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>测试内容</span></b></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><b><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>分数</span></b></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>1<span
+                                lang=ZH-CN>、基本概念</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>颜色辨别、空间的知识、数量的概念</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+                                FangSong_GB2312'>@TOPIC-1@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>2<span
+                                lang=ZH-CN>、功能性标识</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>公共设施、公共场所及公共服务标志的认识</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-2@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>3<span
+                                lang=ZH-CN>、工具</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>考察对工具的识别及特殊工具的使用知识</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-3@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>4<span
+                                lang=ZH-CN>、家庭管理</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>家庭劳动、食物处理、衣物维护</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-4@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>5<span
+                                lang=ZH-CN>、健康与安全</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>日常生活中的个人卫生、急救及安全的知识</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-5@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>6<span
+                                lang=ZH-CN>、公共服务</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>公共设施的利用及拨打电话并用电话进行查询服务</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-6@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>7<span
+                                lang=ZH-CN>、时间</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>理解与时间相关的概念及读时间（包括时钟时间、电子钟时间、日历时间）</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-7@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>8<span
+                                lang=ZH-CN>、金钱</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>货币的辨认、货币的等价认识、货币的使用</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-8@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=168 colspan=2 style='width:125.9pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal><b><span style='font-family:FangSong_GB2312'>9<span
+                                lang=ZH-CN>、测量</span></span></b></p>
+                        </td>
+                        <td width=331 colspan=3 style='width:248.05pt;border-top:none;border-left:
+                            none;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>温度测量、液体测量、长度测量</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOPIC-9@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.85pt'>
+                        <td width=499 colspan=5 style='width:373.95pt;border-top:none;border-left:
+                            solid black 1.0pt;border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:19.85pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span lang=ZH-CN
+                                style='font-family:FangSong_GB2312'>总分：</span></p>
+                        </td>
+                        <td width=70 colspan=2 style='width:52.15pt;border-top:none;border-left:none;
+                            border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+                            height:19.85pt'>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>@TOTAL@</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:24.15pt'>
+                        <td width=568 colspan=7 style='width:426.1pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:24.15pt'>
+                            <p class=MsoNormal align=left style='text-align:left'><span style='font-family:
+                                FangSong_GB2312'>*<span lang=ZH-CN>注：每项分测验满分</span>24<span lang=ZH-CN>分，总分</span>216<span
+                                    lang=ZH-CN>分。</span></span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:19.5pt'>
+                        <td width=568 colspan=7 valign=top style='width:426.1pt;border-top:none;
+                            border-left:solid black 1.0pt;border-bottom:solid windowtext 1.0pt;
+                            border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:19.5pt'>
+                            <p class=MsoNormal style='line-height:150%'><b><span lang=ZH-CN
+                                style='font-size:12.0pt;line-height:150%;font-family:FangSong_GB2312'>社会独立生活技能结果分数解释：</span></b></p>
+                        </td>
+                    </tr>
+                    <tr style='height:22.7pt'>
+                        <td width=568 colspan=7 style='width:426.1pt;border-top:none;border-left:
+                            solid black 1.0pt;border-bottom:none;border-right:solid black 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:22.7pt'>
+                            <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+                                line-height:150%;font-family:FangSong_GB2312'>&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:22.7pt'>
+                        <td width=568 colspan=7 style='width:426.1pt;border-top:none;border-left:
+                            solid black 1.0pt;border-bottom:none;border-right:solid black 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:22.7pt'>
+                            <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+                                line-height:150%;font-family:FangSong_GB2312'>&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:22.7pt'>
+                        <td width=568 colspan=7 style='width:426.1pt;border-top:none;border-left:
+                            solid black 1.0pt;border-bottom:none;border-right:solid black 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:22.7pt'>
+                            <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+                                line-height:150%;font-family:FangSong_GB2312'>&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:22.7pt'>
+                        <td width=568 colspan=7 style='width:426.1pt;border-top:none;border-left:
+                            solid black 1.0pt;border-bottom:none;border-right:solid black 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:22.7pt'>
+                            <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+                                line-height:150%;font-family:FangSong_GB2312'>&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:22.7pt'>
+                        <td width=568 colspan=7 style='width:426.1pt;border-top:none;border-left:
+                            solid black 1.0pt;border-bottom:none;border-right:solid black 1.0pt;
+                            padding:0cm 5.4pt 0cm 5.4pt;height:22.7pt'>
+                            <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+                                line-height:150%;font-family:FangSong_GB2312'>&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:22.7pt'>
+                        <td width=568 colspan=7 style='width:426.1pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:22.7pt'>
+                            <p class=MsoNormal><span style='font-size:10.0pt;font-family:FangSong_GB2312'>&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr style='height:162.0pt'>
+                        <td width=568 colspan=7 valign=top style='width:426.1pt;border:solid black 1.0pt;
+                            border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:162.0pt'>
+                            <p class=MsoNormal><span lang=ZH-CN style='font-family:FangSong_GB2312'>总体评价：</span></p>
+                            <p class=MsoNormal><span style='font-family:FangSong_GB2312'>&nbsp;</span></p>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+            
+            <p class=MsoNormal>&nbsp;</p>
+            
+        </div>
+        
+    </body>
+    
 </html>

@@ -20,6 +20,7 @@ class PDFPreviewViewController: UIViewController {
     // MARK: - Properties
     
     var candidate: Candidate?
+    var totalScore: Int?
     
     // TODO: Need to Replace some cells
     
@@ -42,7 +43,6 @@ class PDFPreviewViewController: UIViewController {
         // Get PDF File URL
         let pdfURL = URL(fileURLWithPath: pdfFilePath)
         
-        // TODO: Add String about User Info
         let reportTitle = "日常生活活动能力评估报告"
         let activityViewController = UIActivityViewController(activityItems: [pdfURL, reportTitle], applicationActivities: nil)
         
@@ -60,9 +60,6 @@ class PDFPreviewViewController: UIViewController {
         // Add activityIndicatorView to webView
         webView.addSubview(activityIndicatorView)
         
-        // Center activityIndicatorView
-        activityIndicatorView.center = webView.convert(webView.center, from: webView.superview)
-        
         // Configure ActivityIndicatorView
         activityIndicatorView.startAnimating()
         activityIndicatorView.hidesWhenStopped = true
@@ -76,8 +73,11 @@ class PDFPreviewViewController: UIViewController {
     }
     
     func loadPDF() {
+        guard let candidate = candidate, let totalScore = totalScore else {
+            return
+        }
         // Compose PDF
-        reportFormComposer.renderPDF()
+        reportFormComposer.renderPDF(for: candidate, with: totalScore)
         
         // Preview PDF via WKWebView
         let pdfFilePath = reportFormComposer.pdfFilePath

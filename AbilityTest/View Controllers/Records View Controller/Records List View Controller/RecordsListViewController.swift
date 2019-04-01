@@ -126,7 +126,7 @@ extension RecordsListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCandidate: Candidate
-        if searchController.isActive {
+        if searchController.isActive, indexPath.row < searchResults.count {
             selectedCandidate = searchResults[indexPath.row]
             searchController.searchBar.endEditing(true)
         } else {

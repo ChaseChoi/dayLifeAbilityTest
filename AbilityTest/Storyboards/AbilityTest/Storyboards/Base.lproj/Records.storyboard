@@ -182,14 +182,15 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="n12-FL-IiP">
-                                <rect key="frame" x="374" y="537" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="n12-FL-IiP">
+                                <rect key="frame" x="374" y="502" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="n12-FL-IiP" firstAttribute="centerX" secondItem="5yj-Ha-RaI" secondAttribute="centerX" id="14L-3t-NKp"/>
                             <constraint firstItem="2cK-cr-r1T" firstAttribute="bottom" secondItem="YLr-6D-IOK" secondAttribute="bottom" id="KKX-ei-iOe"/>
+                            <constraint firstItem="n12-FL-IiP" firstAttribute="centerY" secondItem="5yj-Ha-RaI" secondAttribute="centerY" id="Kb8-LG-zYH"/>
                             <constraint firstItem="YLr-6D-IOK" firstAttribute="top" secondItem="2cK-cr-r1T" secondAttribute="top" id="cji-zA-hfZ"/>
                             <constraint firstItem="YLr-6D-IOK" firstAttribute="leading" secondItem="2cK-cr-r1T" secondAttribute="leading" id="o7c-gh-fh5"/>
                             <constraint firstItem="2cK-cr-r1T" firstAttribute="trailing" secondItem="YLr-6D-IOK" secondAttribute="trailing" id="yIw-cO-gtK"/>

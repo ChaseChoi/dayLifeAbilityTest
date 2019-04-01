@@ -47,6 +47,7 @@ class DetailViewController: UIViewController {
             if let navigationViewController = segue.destination as? UINavigationController,
                 let pdfPreviewController = navigationViewController.topViewController as? PDFPreviewViewController, let candidate = candidate {
                 pdfPreviewController.candidate = candidate
+                pdfPreviewController.totalScore = calculateTotalScores()
             }
         default:
             break
