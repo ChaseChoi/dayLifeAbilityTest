@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Charts
 
 class DetailViewController: UIViewController {
+    
+    // MARK: - @IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var examinerLabel: UILabel!
@@ -18,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var avatarOffsetConstraint: NSLayoutConstraint!
+    @IBOutlet weak var barChartView: BarChartView!
     
     // MARK: - Properties
     
@@ -29,12 +33,16 @@ class DetailViewController: UIViewController {
     
     private let intelligenceStatus = ["智力障碍", "正常"]
     
+    // Bar chart data source
+    var barChartDataEntries: [BarChartDataEntry] = []
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        configureBarChart()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,7 +74,7 @@ class DetailViewController: UIViewController {
         return Int(totalScores)
     }
     
-    // Configure View
+    // MARK: - Configure View
     func updateView() {
         if let candidate = candidate {
             // Make view visable
@@ -81,6 +89,8 @@ class DetailViewController: UIViewController {
             intelligenceLabel.text = intelligenceStatus[intelligenceStatusIndex]
             
             totalScoresLabel.text = String(calculateTotalScores())
+            
+            populateDataEntries()
         }
     }
     
@@ -126,6 +136,63 @@ class DetailViewController: UIViewController {
         
         profileView.layer.insertSublayer(gradientLayer, at: 0)
         
+    }
+    
+    // MARK: - Bar Chart
+    
+    func configureBarChart() {
+        
+        // Configure appearance
+        barChartView.chartDescription?.text = ""
+        barChartView.noDataText = "暂无数据"
+        barChartView.noDataFont = UIFont.systemFont(ofSize: 17)
+        barChartView.noDataTextColor = UIColor(red: 152/255, green: 166/255, blue: 195/255, alpha: 1)
+        barChartView.legend.enabled = false
+        
+        barChartView.xAxis.labelPosition = .bottom
+        barChartView.xAxis.drawGridLinesEnabled = false
+        barChartView.leftAxis.drawGridLinesEnabled = false
+        barChartView.rightAxis.enabled = false
+        
+        // Disable interaction
+        barChartView.scaleXEnabled = false
+        barChartView.scaleYEnabled = false
+        barChartView.pinchZoomEnabled = false
+        barChartView.doubleTapToZoomEnabled = false
+        barChartView.highlighter = nil
+        
+    }
+    
+    func populateDataEntries() {
+        // Remove all entries before
+        barChartDataEntries.removeAll()
+        
+        // Get scores of each topic
+        if let topicsSet = candidate?.topics as? Set<Topic> {
+            // Get topic objects
+            var topicsArray = Array(topicsSet)
+            topicsArray.sort {
+                $0.id < $1.id
+            }
+            for index in 0..<topicsArray.count {
+                let scoreEntry = BarChartDataEntry(x: Double(topicsArray[index].id), y: Double(topicsArray[index].score))
+                barChartDataEntries.append(scoreEntry)
+            }
+            
+            
+            // Populate
+            let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: nil)
+            let barChartData = BarChartData(dataSet: barChartDataSet)
+            
+            // Configure Color
+            barChartDataSet.colors = ChartColorTemplates.vordiplom()
+            
+            // Feed Data
+            barChartView.data = barChartData
+            
+            // Animation
+            barChartView.animate(yAxisDuration: 0.8, easingOption: .easeInOutSine)
+        }
     }
     
     @IBAction func unwindPDFPreview(with segue: UIStoryboardSegue) {
