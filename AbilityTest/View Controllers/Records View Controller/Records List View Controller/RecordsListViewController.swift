@@ -11,6 +11,7 @@ import CoreData
 
 protocol RecordSelectionDelegate: class {
     func recordSelected(_ candidateSelected: Candidate)
+    func recordDeleted(_ controller: RecordsListViewController)
 }
 
 class RecordsListViewController: UITableViewController {
@@ -104,6 +105,7 @@ extension RecordsListViewController: NSFetchedResultsControllerDelegate {
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
+            delegate?.recordDeleted(self)
         case .update:
             if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? RecordListCell {
                 configure(cell, at: indexPath)

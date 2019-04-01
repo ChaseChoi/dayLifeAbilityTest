@@ -69,6 +69,9 @@ class DetailViewController: UIViewController {
     // Configure View
     func updateView() {
         if let candidate = candidate {
+            // Make view invisable
+            profileView.isHidden = false
+            
             nameLabel.text = candidate.name
             idLabel.text = candidate.id
             examinerLabel.text = candidate.examiner
@@ -86,7 +89,7 @@ class DetailViewController: UIViewController {
     
     func setupView() {
         // Make view visable
-        profileView.isHidden = false
+        profileView.isHidden = true
         
         // Configure text color
         firstNameLabel.textColor = .white
@@ -106,8 +109,14 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: RecordSelectionDelegate {
+    
     func recordSelected(_ candidateSelected: Candidate) {
         candidate = candidateSelected
+    }
+    
+    func recordDeleted(_ controller: RecordsListViewController) {
+        // Make view invisible
+        profileView.isHidden = true
     }
 }
 

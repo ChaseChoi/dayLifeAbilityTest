@@ -22,8 +22,6 @@ class PDFPreviewViewController: UIViewController {
     var candidate: Candidate?
     var totalScore: Int?
     
-    // TODO: Need to Replace some cells
-    
     let reportFormComposer = ReportFormComposer()
     
     // MARK: - View Life Cycle
