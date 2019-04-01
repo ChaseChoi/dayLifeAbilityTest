@@ -16,8 +16,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var totalScoresLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var exportButton: UIButton!
-    @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var avatarOffsetConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -69,8 +69,9 @@ class DetailViewController: UIViewController {
     // Configure View
     func updateView() {
         if let candidate = candidate {
-            // Make view invisable
+            // Make view visable
             profileView.isHidden = false
+            avatarImageView.isHidden = false
             
             nameLabel.text = candidate.name
             idLabel.text = candidate.id
@@ -79,20 +80,21 @@ class DetailViewController: UIViewController {
             let intelligenceStatusIndex = candidate.isIntellecuallyDisabled ? 0 : 1
             intelligenceLabel.text = intelligenceStatus[intelligenceStatusIndex]
             
-            // Configure First Name Label
-            firstNameLabel.text = String(candidate.name?.prefix(1) ?? "")
-            
             totalScoresLabel.text = String(calculateTotalScores())
         }
     }
     
     
     func setupView() {
-        // Make view visable
-        profileView.isHidden = true
         
-        // Configure text color
-        firstNameLabel.textColor = .white
+        setupProfileView()
+        
+        // Configure constraint
+        avatarOffsetConstraint.constant = -avatarImageView.frame.height*0.65/2
+        
+        // Make view invisiable
+        profileView.isHidden = true
+        avatarImageView.isHidden = true
         
         // Configure Button
         exportButton.applyRegisterViewButtonStyle()
@@ -100,6 +102,29 @@ class DetailViewController: UIViewController {
         
         // Always Display Master Pane
         splitViewController?.preferredDisplayMode = .allVisible
+        
+    }
+    
+    func setupProfileView() {
+        let gradientLayer = CAGradientLayer()
+        let startColor = UIColor(red: 38/255, green: 218/255, blue: 106/255, alpha: 1)
+        let endColor = UIColor(red: 76/255, green: 206/255, blue: 220/255, alpha: 1)
+        
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.frame = profileView.bounds
+        
+        profileView.layer.cornerRadius = 8.0
+        profileView.layer.masksToBounds = true
+        
+        profileView.layer.shadowRadius = 5.0
+        profileView.layer.shadowColor = UIColor.black.cgColor
+        profileView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        profileView.layer.shadowOpacity = 0.55
+        profileView.layer.shadowPath = UIBezierPath(rect: profileView.bounds).cgPath
+        
+        profileView.layer.insertSublayer(gradientLayer, at: 0)
         
     }
     
@@ -117,6 +142,7 @@ extension DetailViewController: RecordSelectionDelegate {
     func recordDeleted(_ controller: RecordsListViewController) {
         // Make view invisible
         profileView.isHidden = true
+        avatarImageView.isHidden = true
     }
 }
 
