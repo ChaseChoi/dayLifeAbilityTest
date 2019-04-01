@@ -17,8 +17,8 @@ class QuestionViewController: UIViewController {
     // MARK: - @IBOutlets
     
     @IBOutlet weak var questionContentLabel: UILabel!
-    @IBOutlet weak var currentQuestionIDLabel: UILabel!
-    @IBOutlet weak var refImageView: UIImageView!
+    @IBOutlet weak var refImageButton: UIButton!
+    @IBOutlet weak var referenceButtonCaption: UILabel!
     
     // MARK: - Properties
     
@@ -43,6 +43,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
         displayNewQuestions()
     }
     
@@ -86,7 +87,6 @@ class QuestionViewController: UIViewController {
         
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "好的", style: .default) { action -> Void in
-//                self.dismiss(animated: true, completion: nil)
                 self.delegate?.questionViewController(self, didFinishTopicItemIndex: self.currentTopicItemIndex)
             }
             alertController.addAction(action)
@@ -95,6 +95,11 @@ class QuestionViewController: UIViewController {
     }
     
     // MARK: - Helper Methods
+    
+    func setupView() {
+        refImageButton.isEnabled = false
+        referenceButtonCaption.isHidden = true
+    }
     
     func displayNewQuestions() {
         var button: UIButton = UIButton()
@@ -105,26 +110,28 @@ class QuestionViewController: UIViewController {
         answerIndex = currentQuestionData.correctOptionIndex
         
         // Update UI
-        currentQuestionIDLabel.text = "\(currentQuestionIndex+1)/\(questionItems.count)"
-        questionContentLabel.text = currentQuestionData.questionContent
+        let number = "\(currentQuestionIndex+1)/\(questionItems.count)"
+        questionContentLabel.text = "\(number) \(currentQuestionData.questionContent)"
         
         for index in 0...3 {
             button = view.viewWithTag(index+1000) as! UIButton
             
             let imageName = currentQuestionData.options[index]
             let image = UIImage(named: imageName)
+            button.imageView?.contentMode = .scaleAspectFit
             button.setImage(image, for: .normal)
-            if let size = image?.size {
-                button.frame.size = size
-            }
         }
         // Update Reference Image
         if let refImageName = currentQuestionData.refImageName {
-            refImageView.image = UIImage(named: refImageName)
-            refImageView.sizeToFit()
-            refImageView.isHidden = false
+            let refImage = UIImage(named: refImageName)
+            refImageButton.imageView?.contentMode = .scaleAspectFit
+            refImageButton.setImage(refImage, for: .disabled)
+            
+            refImageButton.isHidden = false
+            referenceButtonCaption.isHidden = false
         } else {
-            refImageView.isHidden = true
+            refImageButton.isHidden = true
+            referenceButtonCaption.isHidden = true
         }
         
         // Update index
