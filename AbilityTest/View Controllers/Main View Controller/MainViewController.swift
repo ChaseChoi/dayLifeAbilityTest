@@ -29,7 +29,6 @@ class MainViewController: UIViewController {
         
         coreDataManager = CoreDataManager(modelName: DataModel.Candidates) {
             self.setupView()
-            self.loadSampleData()
         }
     }
     
@@ -70,36 +69,6 @@ class MainViewController: UIViewController {
         createButton.applyRegisterViewButtonStyle()
         checkRecordsButton.isHidden = false
         checkRecordsButton.applyRegisterViewButtonStyle()
-    }
-    
-    func loadSampleData() {
-        guard let managedObjectContext = coreDataManager?.mainManagedObjectContext else {
-            return
-        }
-        let names = ["张三", "李四", "王五"]
-        let ids = ["20152100179", "20152100180", "20152100181"]
-        let examiners = ["王老师", "蔡老师", "刘老师"]
-        let statusList = [true, false, true]
-        for i in 0..<3 {
-            let newCandidate = Candidate(context: managedObjectContext)
-            newCandidate.name = names[i]
-            newCandidate.createAt = Date()
-            newCandidate.id = ids[i]
-            newCandidate.examiner = examiners[i]
-            newCandidate.isIntellecuallyDisabled = statusList[i]
-            
-            for topicIndex in 1...9 {
-                let topic = Topic(context: managedObjectContext)
-                // Configure
-                topic.startAt = Date()
-                topic.finishAt = Date()
-                topic.id = Int32(topicIndex)
-                topic.questionNumbers = Int32(24)
-                topic.score = Int32(1 + arc4random_uniform(24))
-                // Relationship
-                topic.candidate = newCandidate
-            }
-        }
     }
     
     // MARK: - @IBActions

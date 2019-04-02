@@ -55,6 +55,7 @@ class RecordsListViewController: UITableViewController {
         
         title = "测试"
         fetchRecords()
+        loadSampleData()
         setupView()
     }
     
@@ -82,6 +83,35 @@ class RecordsListViewController: UITableViewController {
         } catch {
             print("Unable to Perform Fetch Request")
             print("\(error), \(error.localizedDescription)")
+        }
+    }
+    
+    func loadSampleData() {
+        if let fetchedObjects = fetchedResultsController.fetchedObjects, fetchedObjects.count == 0, let managedObjectContext = managedObjectContext {
+            let names = ["张三", "李四", "王五", "王芳芳"]
+            let ids = ["20152100179", "20162100180", "20182100181", "20192100123"]
+            let examiners = ["王老师", "蔡老师", "刘老师", "黄老师"]
+            let statusList = [true, false, true, false]
+            for i in 0..<names.count {
+                let newCandidate = Candidate(context: managedObjectContext)
+                newCandidate.name = names[i]
+                newCandidate.createAt = Date()
+                newCandidate.id = ids[i]
+                newCandidate.examiner = examiners[i]
+                newCandidate.isIntellecuallyDisabled = statusList[i]
+                
+                for topicIndex in 1...9 {
+                    let topic = Topic(context: managedObjectContext)
+                    // Configure
+                    topic.startAt = Date()
+                    topic.finishAt = Date()
+                    topic.id = Int32(topicIndex)
+                    topic.questionNumbers = Int32(24)
+                    topic.score = Int32(1 + arc4random_uniform(24))
+                    // Relationship
+                    topic.candidate = newCandidate
+                }
+            }
         }
     }
 }

@@ -78,8 +78,7 @@ class DetailViewController: UIViewController {
     func updateView() {
         if let candidate = candidate {
             // Make view visable
-            profileView.isHidden = false
-            avatarImageView.isHidden = false
+            hideView(status: false)
             
             nameLabel.text = candidate.name
             idLabel.text = candidate.id
@@ -103,8 +102,7 @@ class DetailViewController: UIViewController {
         avatarOffsetConstraint.constant = -avatarImageView.frame.height*0.65/2
         
         // Make view invisiable
-        profileView.isHidden = true
-        avatarImageView.isHidden = true
+        hideView(status: true)
         
         // Configure Button
         exportButton.applyRegisterViewButtonStyle()
@@ -136,6 +134,12 @@ class DetailViewController: UIViewController {
         
         profileView.layer.insertSublayer(gradientLayer, at: 0)
         
+    }
+    
+    func hideView(status: Bool) {
+        profileView.isHidden = status
+        avatarImageView.isHidden = status
+        barChartView.isHidden = status
     }
     
     // MARK: - Bar Chart
@@ -174,11 +178,14 @@ class DetailViewController: UIViewController {
             topicsArray.sort {
                 $0.id < $1.id
             }
-            for index in 0..<topicsArray.count {
+            let total = topicsArray.count
+            
+            for index in 0..<total {
                 let scoreEntry = BarChartDataEntry(x: Double(topicsArray[index].id), y: Double(topicsArray[index].score))
                 barChartDataEntries.append(scoreEntry)
             }
             
+            barChartView.xAxis.labelCount = total
             
             // Populate
             let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: nil)
@@ -208,8 +215,7 @@ extension DetailViewController: RecordSelectionDelegate {
     
     func recordDeleted(_ controller: RecordsListViewController) {
         // Make view invisible
-        profileView.isHidden = true
-        avatarImageView.isHidden = true
+        hideView(status: true)
     }
 }
 
