@@ -157,13 +157,10 @@ class DetailViewController: UIViewController {
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.leftAxis.drawGridLinesEnabled = false
         barChartView.rightAxis.enabled = false
+        barChartView.xAxis.granularity = 1
         
         // Disable interaction
-        barChartView.scaleXEnabled = false
-        barChartView.scaleYEnabled = false
-        barChartView.pinchZoomEnabled = false
-        barChartView.doubleTapToZoomEnabled = false
-        barChartView.highlighter = nil
+        barChartView.isUserInteractionEnabled = false
         
         // Set min and max value for y axis
         barChartView.leftAxis.axisMinimum = 0.0

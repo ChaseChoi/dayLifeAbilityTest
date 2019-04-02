@@ -18,7 +18,6 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var questionContentLabel: UILabel!
     @IBOutlet weak var refImageButton: UIButton!
-    @IBOutlet weak var referenceButtonCaption: UILabel!
     
     // MARK: - Properties
     
@@ -98,7 +97,6 @@ class QuestionViewController: UIViewController {
     
     func setupView() {
         refImageButton.isEnabled = false
-        referenceButtonCaption.isHidden = true
     }
     
     func displayNewQuestions() {
@@ -128,10 +126,8 @@ class QuestionViewController: UIViewController {
             refImageButton.setImage(refImage, for: .disabled)
             
             refImageButton.isHidden = false
-            referenceButtonCaption.isHidden = false
         } else {
             refImageButton.isHidden = true
-            referenceButtonCaption.isHidden = true
         }
         
         // Update index
