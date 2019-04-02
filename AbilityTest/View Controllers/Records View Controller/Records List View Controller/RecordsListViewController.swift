@@ -37,7 +37,7 @@ class RecordsListViewController: UITableViewController {
         let fetchRequest: NSFetchRequest<Candidate> = Candidate.fetchRequest()
        
         // Configure Fetch Request
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Candidate.name), ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Candidate.createAt), ascending: false)]
         
         // Create Fetched Results Controller
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -88,10 +88,13 @@ class RecordsListViewController: UITableViewController {
     
     func loadSampleData() {
         if let fetchedObjects = fetchedResultsController.fetchedObjects, fetchedObjects.count == 0, let managedObjectContext = managedObjectContext {
-            let names = ["张三", "李四", "王五", "王芳芳"]
-            let ids = ["20152100179", "20162100180", "20182100181", "20192100123"]
-            let examiners = ["王老师", "蔡老师", "刘老师", "黄老师"]
-            let statusList = [true, false, true, false]
+            
+            // Define Sample Data
+            let names = ["张三", "李四", "王五", "王芳芳", "蔡姗姗"]
+            let ids = ["20152100179", "20162100180", "20172100181", "20182100123", "20192100165"]
+            let examiners = ["王老师", "蔡老师", "刘老师", "黄老师", "梁老师"]
+            let statusList = [true, false, true, false, true]
+            
             for i in 0..<names.count {
                 let newCandidate = Candidate(context: managedObjectContext)
                 newCandidate.name = names[i]
