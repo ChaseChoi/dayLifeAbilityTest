@@ -165,6 +165,9 @@ class DetailViewController: UIViewController {
         barChartView.doubleTapToZoomEnabled = false
         barChartView.highlighter = nil
         
+        // Set min and max value for y axis
+        barChartView.leftAxis.axisMinimum = 0.0
+        barChartView.leftAxis.axisMaximum = 24.0
     }
     
     func populateDataEntries() {
