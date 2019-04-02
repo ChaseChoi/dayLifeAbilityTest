@@ -130,6 +130,8 @@ extension RecordsListViewController: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
+            case NSFetchedResultsChangeType(rawValue: 0)!:
+                break
         case .insert:
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
@@ -137,8 +139,8 @@ extension RecordsListViewController: NSFetchedResultsControllerDelegate {
         case .delete:
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                delegate?.recordDeleted(self)
             }
-            delegate?.recordDeleted(self)
         case .update:
             if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? RecordListCell {
                 configure(cell, at: indexPath)
@@ -184,7 +186,7 @@ extension RecordsListViewController {
             return 0
         }
         if searchController.isActive {
-            return 1
+            return searchResults.count == 0 ? 0 : 1
         } else {
             return sections.count
         }
